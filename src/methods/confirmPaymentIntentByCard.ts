@@ -1,5 +1,5 @@
 import { PaymentIntentResult } from "@stripe/stripe-js";
-import { responseHandler } from "../utils";
+import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl } from "../utils/constants";
 import { getApiKey } from "../utils/store";
 

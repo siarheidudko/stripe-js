@@ -3,7 +3,7 @@
 ### `loadStripe`
 
 ```js
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@remedyproduct/stripe-js";
 
 const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 ```
