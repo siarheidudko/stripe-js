@@ -1,0 +1,10 @@
+.github
+.nyc_output
+docs
+node_modules
+src
+test
+.gitignore
+.npmignore
+tsconfig.json
+.vscode

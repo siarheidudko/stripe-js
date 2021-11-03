@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES6",
+    "moduleResolution": "Node"
+  },
+  "compileOnSave": true,
+  "include": ["src"],
+  "typedocOptions": {
+    "out": "./docs/",
+    "theme": "default",
+    "name": "@remedyproduct/stripe-js",
+    "includeVersion": true,
+    "hideGenerator": true
+  }
+}
