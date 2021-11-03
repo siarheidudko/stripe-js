@@ -1,3 +1,10 @@
+### v0.0.3
+
+- Added method `addSourceToCustomer`
+- Added method `deleteSourceFromCustomer`
+- Updated ci/cd
+- Updated docs
+
 ### v0.0.2
 
 - Updating documentation
