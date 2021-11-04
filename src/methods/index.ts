@@ -5,7 +5,7 @@ import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
 /**
  * additional stripe methods
  */
-export class additionalMethods {
+export class AdditionalMethods {
   public confirmPaymentIntentByCard = confirmPaymentIntentByCard;
   public addSourceToCustomer = addSourceToCustomer;
   public deleteSourceFromCustomer = deleteSourceFromCustomer;
