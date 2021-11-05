@@ -3,13 +3,12 @@ import {
   StripeConstructorOptions,
   Stripe as StripeDefault,
 } from "@stripe/stripe-js";
-import { AdditionalMethods } from "./methods";
-import { setApiKey } from "./utils/store";
+import { RemedyProductStripe } from "./methods/index";
 
 /**
  * Stripe default interface
  */
-interface StripeDefaultWithInternal extends StripeDefault {
+export interface StripeDefaultWithInternal extends StripeDefault {
   /**
    * Stripe api key after initialization, like pk_...
    */
@@ -17,14 +16,9 @@ interface StripeDefaultWithInternal extends StripeDefault {
 }
 
 /**
- * Stripe patched interface
+ * Stripe patched library
  */
-export interface Stripe extends StripeDefaultWithInternal, AdditionalMethods {}
-
-/**
- *  Stripe liblary
- */
-let stripe: Stripe;
+export interface Stripe extends RemedyProductStripe, StripeDefault {}
 
 /**
  * Initialize stripe
@@ -37,8 +31,6 @@ export const loadStripe = async (
   publishableKey: string,
   options: StripeConstructorOptions | undefined
 ) => {
-  if (stripe) throw new Error("Already initialized.");
-
   const stripeDefault: StripeDefault | null = await loadStripeDefault(
     publishableKey,
     options
@@ -48,15 +40,9 @@ export const loadStripe = async (
     typeof (stripeDefault as StripeDefaultWithInternal)?._apiKey !== "string"
   )
     throw new Error("Initialization error.");
-  const apiKey = (stripeDefault as StripeDefaultWithInternal)._apiKey;
-  setApiKey(apiKey);
-  const methods = new AdditionalMethods();
-
-  stripe = {
-    _apiKey: apiKey,
-    ...stripeDefault,
-    ...methods,
-  };
-
+  const remedyProductStripe = new RemedyProductStripe(
+    (stripeDefault as StripeDefaultWithInternal)._apiKey
+  );
+  const stripe: Stripe = Object.assign(remedyProductStripe, stripeDefault);
   return stripe;
 };

@@ -1,7 +1,7 @@
 import { PaymentIntentResult } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { getApiKey } from "../utils/store";
+import { RemedyProductStripe } from "./index";
 
 /**
  * Confirm payment intent by customer's card
@@ -10,11 +10,14 @@ import { getApiKey } from "../utils/store";
  * @param paymentMethodId - stripe customer payment method id (see: https://stripe.com/docs/api/cards/object#card_object-id)
  * @returns
  */
-export const confirmPaymentIntentByCard = async (
+export const confirmPaymentIntentByCard = async function (
+  this: RemedyProductStripe,
   paymentIntentSecret: string,
   paymentMethodId: string
-): Promise<PaymentIntentResult["paymentIntent"] | undefined> => {
-  const stripeApiKey = getApiKey() as string;
+): Promise<PaymentIntentResult["paymentIntent"] | undefined> {
+  /* eslint-disable */
+  const stripeApiKey = this._apiKey;
+  /* eslint-enable */
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 

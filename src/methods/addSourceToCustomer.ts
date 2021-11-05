@@ -1,7 +1,7 @@
 import { Card } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { getApiKey } from "../utils/store";
+import { RemedyProductStripe } from "./index";
 
 /**
  * Add payment method to customer (from source or token).
@@ -11,12 +11,15 @@ import { getApiKey } from "../utils/store";
  * @param customerEphemeralKey - customer ephemeral key
  * @returns
  */
-export const addSourceToCustomer = async (
+export const addSourceToCustomer = async function (
+  this: RemedyProductStripe,
   token: string,
   customerId: string,
   customerEphemeralKey: string
-): Promise<Card | undefined> => {
-  const stripeApiKey = getApiKey() as string;
+): Promise<Card | undefined> {
+  /* eslint-disable */
+  const stripeApiKey = this._apiKey;
+  /* eslint-enable */
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 

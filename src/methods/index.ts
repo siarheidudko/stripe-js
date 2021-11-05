@@ -5,7 +5,11 @@ import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
 /**
  * additional stripe methods
  */
-export class AdditionalMethods {
+export class RemedyProductStripe {
+  constructor(apiKey: string) {
+    this._apiKey = apiKey;
+  }
+  public _apiKey: string;
   public confirmPaymentIntentByCard = confirmPaymentIntentByCard;
   public addSourceToCustomer = addSourceToCustomer;
   public deleteSourceFromCustomer = deleteSourceFromCustomer;
