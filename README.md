@@ -32,10 +32,8 @@ const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 | addSourceToCustomer        | [source or token], [customer_id], [ephemeral_key] | Add payment method to customer (from source or token). |
 | deleteSourceFromCustomer   | [source_id], [customer_id], [ephemeral_key]       | Delete payment method from customer.                   |
 | getAllCards                | [ephemeral_key], [customer_id]                    | Get all cards from customer.                           |
-| getCustomer                | [ephemeral_key], [customer_id]                    | Get customer. 
-|
-| setDefaultCard             | [defaultCardId], [ephemeral_key], [customer_id]   | Set default card.   
-|
+| getCustomer                | [ephemeral_key], [customer_id]                    | Get customer.                                          |
+| setDefaultCard             | [defaultCardId], [ephemeral_key], [customer_id]   | Set default card.                                      |
 
 ## Examples
 
