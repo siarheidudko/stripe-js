@@ -31,25 +31,46 @@ const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 | confirmPaymentIntentByCard | [client_secret], [card_id]                        | Confirm payment with the user's payment intent card.   |
 | addSourceToCustomer        | [source or token], [customer_id], [ephemeral_key] | Add payment method to customer (from source or token). |
 | deleteSourceFromCustomer   | [source_id], [customer_id], [ephemeral_key]       | Delete payment method from customer.                   |
+| getAllCards                | [ephemeral_key], [customer_id]                    | Get all cards from customer.                           |
+| getCustomer                | [ephemeral_key], [customer_id]                    | Get customer. 
+|
+| setDefaultCard             | [defaultCardId], [ephemeral_key], [customer_id]   | Set default card.   
+|
 
 ## Examples
 
 ```
 stripe.confirmPaymentIntentByCard(
-  'pi_3Jrk80HdlMaZle3e1tGtSxiH_secret_mWdWNlqJfkYEoYOml1GqRPyPm', 
+  'pi_3Jrk80HdlMaZle3e1tGtSxiH_secret_mWdWNlqJfkYEoYOml1GqRPyPm',
   'card_1JrMi8HdlMaZle3eSPPOvapJ'
 );
 
 stripe.addSourceToCustomer(
-  'tok_visa', 
-  'cus_KO9SkBdMeHoMXR', 
+  'tok_visa',
+  'cus_KO9SkBdMeHoMXR',
   'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ'
 );
 
 stripe.deleteSourceFromCustomer(
-  'card_1JroRSHdlMaZle3e4EIGOZuv', 
-  'cus_KO9SkBdMeHoMXR', 
+  'card_1JroRSHdlMaZle3e4EIGOZuv',
+  'cus_KO9SkBdMeHoMXR',
   'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ'
+);
+
+stripe.getAllCards(
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'cus_KO9SkBdMeHoMXR'
+);
+
+stripe.getCustomer(
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'cus_KO9SkBdMeHoMXR'
+);
+
+stripe.setDefaultCard(
+  'card_1JrMi8HdlMaZle3eSPPOvapJ', 
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'cus_KO9SkBdMeHoMXR'
 );
 ```
 

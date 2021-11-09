@@ -1,3 +1,10 @@
+### v0.0.4
+
+- Added method `getAllCards`
+- Added method `getCustomer`
+- Added method `setDefaultCard`
+- Updated docs
+
 ### v0.0.3
 
 - Added method `addSourceToCustomer`
