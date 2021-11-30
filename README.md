@@ -28,7 +28,7 @@ const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 | Method                     | Arguments                                         | Description                                            |
 | -------------------------- | ------------------------------------------------- | ------------------------------------------------------ |
-| confirmPaymentIntentByCard | [client_secret], [card_id]                        | Confirm payment with the user's payment intent card.   |
+| confirmPaymentIntentByCard | [client_secret], [card_id], [returnUrl]           | Confirm payment with the user's payment intent card.   |
 | addSourceToCustomer        | [source or token], [customer_id], [ephemeral_key] | Add payment method to customer (from source or token). |
 | deleteSourceFromCustomer   | [source_id], [customer_id], [ephemeral_key]       | Delete payment method from customer.                   |
 | getAllCards                | [ephemeral_key], [customer_id]                    | Get all cards from customer.                           |
@@ -40,7 +40,8 @@ const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 ```
 stripe.confirmPaymentIntentByCard(
   'pi_3Jrk80HdlMaZle3e1tGtSxiH_secret_mWdWNlqJfkYEoYOml1GqRPyPm',
-  'card_1JrMi8HdlMaZle3eSPPOvapJ'
+  'card_1JrMi8HdlMaZle3eSPPOvapJ',
+  'https://stripe.com/'
 );
 
 stripe.addSourceToCustomer(
@@ -56,18 +57,18 @@ stripe.deleteSourceFromCustomer(
 );
 
 stripe.getAllCards(
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 
 stripe.getCustomer(
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 
 stripe.setDefaultCard(
-  'card_1JrMi8HdlMaZle3eSPPOvapJ', 
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'card_1JrMi8HdlMaZle3eSPPOvapJ',
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 ```
