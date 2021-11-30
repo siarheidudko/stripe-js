@@ -13,7 +13,8 @@ import { RemedyProductStripe } from "./index";
 export const confirmPaymentIntentByCard = async function (
   this: RemedyProductStripe,
   paymentIntentSecret: string,
-  paymentMethodId: string
+  paymentMethodId: string,
+  returnUrl: string
 ): Promise<PaymentIntentResult["paymentIntent"] | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -26,7 +27,7 @@ export const confirmPaymentIntentByCard = async function (
   return fetch(
     `${stripeApiUrl}/payment_intents/${paymentIntentId}/confirm?client_secret=${paymentIntentSecret}`,
     {
-      body: `payment_method=${paymentMethodId}`,
+      body: `payment_method=${paymentMethodId}${returnUrl ? `&return_url=${returnUrl}` : ''}`,
       headers: {
         Authorization: `Bearer ${stripeApiKey}`,
         "Content-Type": `application/x-www-form-urlencoded`,

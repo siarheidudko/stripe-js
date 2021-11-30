@@ -24,7 +24,7 @@ export const setDefaultCard = async function (
     throw new Error("Initialization failed.");
 
   // make request
-  return await fetch(`${stripeApiUrl}/customers/${customerId}`, {
+  return fetch(`${stripeApiUrl}/customers/${customerId}`, {
     body: `default_source=${defaultCardId}`,
     headers: {
       Authorization: `Bearer ${customerKey}`,

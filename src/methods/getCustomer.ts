@@ -22,7 +22,7 @@ export const getCustomer = async function (
     throw new Error("Initialization failed.");
 
   // make request
-  return await fetch(`${stripeApiUrl}/customers/${customerId}`, {
+  return fetch(`${stripeApiUrl}/customers/${customerId}`, {
     headers: {
       Authorization: `Bearer ${customerKey}`,
       "Stripe-Version": stripeApiVersion,

@@ -22,7 +22,7 @@ export const getAllCards = async function (
     throw new Error("Initialization failed.");
 
   // make request
-  return await fetch(
+  return fetch(
     `${stripeApiUrl}/payment_methods?customer=${customerId}&type=card&limit=100`,
     {
       headers: {
