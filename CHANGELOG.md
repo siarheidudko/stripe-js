@@ -1,6 +1,6 @@
 ### v0.0.5
 
-- Added new parameter `confirmPaymentIntentByCard`
+- Add new param to `confirmPaymentIntentByCard`
 ### v0.0.4
 
 - Added method `getAllCards`

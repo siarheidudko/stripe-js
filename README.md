@@ -32,10 +32,8 @@ const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 | addSourceToCustomer        | [source or token], [customer_id], [ephemeral_key] | Add payment method to customer (from source or token). |
 | deleteSourceFromCustomer   | [source_id], [customer_id], [ephemeral_key]       | Delete payment method from customer.                   |
 | getAllCards                | [ephemeral_key], [customer_id]                    | Get all cards from customer.                           |
-| getCustomer                | [ephemeral_key], [customer_id]                    | Get customer. 
-|
-| setDefaultCard             | [defaultCardId], [ephemeral_key], [customer_id]   | Set default card.   
-|
+| getCustomer                | [ephemeral_key], [customer_id]                    | Get customer.                                          |
+| setDefaultCard             | [defaultCardId], [ephemeral_key], [customer_id]   | Set default card.                                      |
 
 ## Examples
 
@@ -59,18 +57,18 @@ stripe.deleteSourceFromCustomer(
 );
 
 stripe.getAllCards(
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 
 stripe.getCustomer(
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 
 stripe.setDefaultCard(
-  'card_1JrMi8HdlMaZle3eSPPOvapJ', 
-  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ', 
+  'card_1JrMi8HdlMaZle3eSPPOvapJ',
+  'ek_test_YWNjdF8xSFhSd0xIZGxNYVpsZTNlLENrVUxKWWNjZExxSDJDb1VKa1YwaXU5VDZVcmVmQXQ_00drAg7pBQ',
   'cus_KO9SkBdMeHoMXR'
 );
 ```
