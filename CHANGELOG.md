@@ -1,3 +1,6 @@
+### v0.0.6
+
+- Add type's declaration
 ### v0.0.5
 
 - Add new param to `confirmPaymentIntentByCard`
