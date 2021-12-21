@@ -44,7 +44,7 @@ jobs:
     timeout-minutes: 15
     needs: [build]
     env:
-      NODE_VERSION: 10
+      NODE_VERSION: 14
     steps:
       - name: Сheckout repo
         uses: actions/checkout@v2
