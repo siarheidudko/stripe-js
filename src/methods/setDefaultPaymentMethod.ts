@@ -5,15 +5,15 @@ import { RemedyProductStripe } from ".";
 /**
  * Confirm payment intent by customer's card
  *
- * @param defaultCardId - card id
+ * @param paymentMethodId - payment method id (see: https://stripe.com/docs/api/customers/object#payment_method_object-id)
  * @param customerKey - customer ephemeral key
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
  * @returns
  */
 
-export const setDefaultCard = async function (
+export const setDefaultPaymentMethod = async function (
   this: RemedyProductStripe,
-  defaultCardId: string,
+  paymentMethodId: string,
   customerKey: string,
   customerId: string
 ) {
@@ -22,10 +22,9 @@ export const setDefaultCard = async function (
   /* eslint-enable */
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
-
-  // make request
+  // make request for payment method api
   return fetch(`${stripeApiUrl}/customers/${customerId}`, {
-    body: `default_source=${defaultCardId}`,
+    body: `invoice_settings[default_payment_method]=${paymentMethodId}`,
     headers: {
       Authorization: `Bearer ${customerKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
