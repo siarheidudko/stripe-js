@@ -3,17 +3,16 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from ".";
 
 /**
- * Confirm payment intent by customer's card
+ * Get all customer's payment methods
  *
- * @param customerKey - customer ephemeral key
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
-
 export const getAllPaymentMethods = async function (
   this: RemedyProductStripe,
-  customerKey: string,
-  customerId: string
+  customerId: string,
+  ephemeralKey: string
 ) {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -26,7 +25,7 @@ export const getAllPaymentMethods = async function (
     `${stripeApiUrl}/payment_methods?customer=${customerId}&type=card&limit=100`,
     {
       headers: {
-        Authorization: `Bearer ${customerKey}`,
+        Authorization: `Bearer ${ephemeralKey}`,
         "Stripe-Version": stripeApiVersion,
       },
       method: "GET",

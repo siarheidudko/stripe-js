@@ -4,18 +4,18 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from "./index";
 
 /**
- * Add payment method to customer (from source or token).
+ * Add card to customer (from source or token).
  *
  * @param token - source or token string (see: https://stripe.com/docs/api/sources/object)
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
- * @param customerEphemeralKey - customer ephemeral key
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
 export const addSourceToCustomer = async function (
   this: RemedyProductStripe,
   token: string,
   customerId: string,
-  customerEphemeralKey: string
+  ephemeralKey: string
 ): Promise<Card | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -27,7 +27,7 @@ export const addSourceToCustomer = async function (
   return fetch(`${stripeApiUrl}/customers/${customerId}/sources`, {
     body: `source=${token}`,
     headers: {
-      Authorization: `Bearer ${customerEphemeralKey}`,
+      Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
       "Stripe-Version": `${stripeApiVersion}`,
     },

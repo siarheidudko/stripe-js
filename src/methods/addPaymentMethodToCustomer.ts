@@ -8,14 +8,14 @@ import { RemedyProductStripe } from "./index";
  *
  * @param paymentMethodId - payment method id (see: https://stripe.com/docs/api/customers/object#payment_method_object-id)
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
- * @param customerEphemeralKey - customer ephemeral key
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
 export const addPaymentMethodToCustomer = async function (
   this: RemedyProductStripe,
   paymentMethodId: string,
   customerId: string,
-  customerEphemeralKey: string
+  ephemeralKey: string
 ): Promise<PaymentMethod | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -27,7 +27,7 @@ export const addPaymentMethodToCustomer = async function (
   return fetch(`${stripeApiUrl}/payment_methods/${paymentMethodId}/attach`, {
     body: `customer=${customerId}`,
     headers: {
-      Authorization: `Bearer ${customerEphemeralKey}`,
+      Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
       "Stripe-Version": `${stripeApiVersion}`,
     },

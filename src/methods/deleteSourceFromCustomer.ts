@@ -4,18 +4,18 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from "./index";
 
 /**
- * Delete payment method from customer.
+ * Delete card from customer.
  *
  * @param sourceId - source or card id (see: https://stripe.com/docs/api/sources/object#source_object-id)
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
- * @param customerEphemeralKey - customer ephemeral key
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
 export const deleteSourceFromCustomer = async function (
   this: RemedyProductStripe,
   sourceId: string,
   customerId: string,
-  customerEphemeralKey: string
+  ephemeralKey: string
 ): Promise<Card | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -28,7 +28,7 @@ export const deleteSourceFromCustomer = async function (
     `${stripeApiUrl}/customers/${customerId}/sources/${sourceId}`,
     {
       headers: {
-        Authorization: `Bearer ${customerEphemeralKey}`,
+        Authorization: `Bearer ${ephemeralKey}`,
         "Stripe-Version": stripeApiVersion,
       },
       method: "DELETE",

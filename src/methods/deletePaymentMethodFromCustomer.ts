@@ -7,13 +7,13 @@ import { RemedyProductStripe } from "./index";
  * Delete payment method from customer.
  *
  * @param paymentMethodId - payment method id (see: https://stripe.com/docs/api/customers/object#payment_method_object-id)
- * @param customerEphemeralKey - customer ephemeral key
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
 export const deletePaymentMethodFromCustomer = async function (
   this: RemedyProductStripe,
   paymentMethodId: string,
-  customerEphemeralKey: string
+  ephemeralKey: string
 ): Promise<PaymentMethod | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -24,7 +24,7 @@ export const deletePaymentMethodFromCustomer = async function (
   // make request
   return fetch(`${stripeApiUrl}/payment_methods/${paymentMethodId}/detach`, {
     headers: {
-      Authorization: `Bearer ${customerEphemeralKey}`,
+      Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
       "Stripe-Version": `${stripeApiVersion}`,
     },

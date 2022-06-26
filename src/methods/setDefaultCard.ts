@@ -3,19 +3,18 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from ".";
 
 /**
- * Confirm payment intent by customer's card
+ * Set default customer card
  *
- * @param defaultCardId - card id
- * @param customerKey - customer ephemeral key
+ * @param cardId - card id (see: https://stripe.com/docs/api/customers/object#card_object-id)
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
-
 export const setDefaultCard = async function (
   this: RemedyProductStripe,
-  defaultCardId: string,
-  customerKey: string,
-  customerId: string
+  cardId: string,
+  customerId: string,
+  ephemeralKey: string
 ) {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -25,9 +24,9 @@ export const setDefaultCard = async function (
 
   // make request
   return fetch(`${stripeApiUrl}/customers/${customerId}`, {
-    body: `default_source=${defaultCardId}`,
+    body: `default_source=${cardId}`,
     headers: {
-      Authorization: `Bearer ${customerKey}`,
+      Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
       "Stripe-Version": stripeApiVersion,
     },

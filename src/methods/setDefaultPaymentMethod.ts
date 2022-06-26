@@ -3,19 +3,18 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from ".";
 
 /**
- * Confirm payment intent by customer's card
+ * Set default customer payment method
  *
  * @param paymentMethodId - payment method id (see: https://stripe.com/docs/api/customers/object#payment_method_object-id)
- * @param customerKey - customer ephemeral key
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
+ * @param ephemeralKey - customer ephemeral key
  * @returns
  */
-
 export const setDefaultPaymentMethod = async function (
   this: RemedyProductStripe,
   paymentMethodId: string,
-  customerKey: string,
-  customerId: string
+  customerId: string,
+  ephemeralKey: string
 ) {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
@@ -26,7 +25,7 @@ export const setDefaultPaymentMethod = async function (
   return fetch(`${stripeApiUrl}/customers/${customerId}`, {
     body: `invoice_settings[default_payment_method]=${paymentMethodId}`,
     headers: {
-      Authorization: `Bearer ${customerKey}`,
+      Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
       "Stripe-Version": stripeApiVersion,
     },
