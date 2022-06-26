@@ -1,21 +1,22 @@
+import { PaymentMethod } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from ".";
+import { RemedyProductStripe } from "./index";
 
 /**
- * Set default customer card
+ * Add payment method to customer.
  *
- * @param cardId - card id (see: https://stripe.com/docs/api/customers/object#card_object-id)
+ * @param paymentMethodId - payment method id (see: https://stripe.com/docs/api/customers/object#payment_method_object-id)
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
  * @param ephemeralKey - customer ephemeral key
  * @returns
  */
-export const setDefaultCard = async function (
+export const addPaymentMethodToCustomer = async function (
   this: RemedyProductStripe,
-  cardId: string,
+  paymentMethodId: string,
   customerId: string,
   ephemeralKey: string
-) {
+): Promise<PaymentMethod | undefined> {
   /* eslint-disable */
   const stripeApiKey = this._apiKey;
   /* eslint-enable */
@@ -23,12 +24,12 @@ export const setDefaultCard = async function (
     throw new Error("Initialization failed.");
 
   // make request
-  return fetch(`${stripeApiUrl}/customers/${customerId}`, {
-    body: `default_source=${cardId}`,
+  return fetch(`${stripeApiUrl}/payment_methods/${paymentMethodId}/attach`, {
+    body: `customer=${customerId}`,
     headers: {
       Authorization: `Bearer ${ephemeralKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
-      "Stripe-Version": stripeApiVersion,
+      "Stripe-Version": `${stripeApiVersion}`,
     },
     method: "POST",
   }).then(responseHandler);

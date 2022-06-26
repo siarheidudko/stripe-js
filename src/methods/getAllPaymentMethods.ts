@@ -3,13 +3,13 @@ import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
 import { RemedyProductStripe } from ".";
 
 /**
- * Get all customer's card
+ * Get all customer's payment methods
  *
  * @param customerId - customer id (see: https://stripe.com/docs/api/customers/object#customer_object-id)
  * @param ephemeralKey - customer ephemeral key
  * @returns
  */
-export const getAllCards = async function (
+export const getAllPaymentMethods = async function (
   this: RemedyProductStripe,
   customerId: string,
   ephemeralKey: string

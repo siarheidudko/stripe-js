@@ -4,6 +4,10 @@ import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
 import { getAllCards } from "./getAllCards";
 import { getCustomer } from "./getCustomer";
 import { setDefaultCard } from "./setDefaultCard";
+import { addPaymentMethodToCustomer } from "./addPaymentMethodToCustomer";
+import { deletePaymentMethodFromCustomer } from "./deletePaymentMethodFromCustomer";
+import { getAllPaymentMethods } from "./getAllPaymentMethods";
+import { setDefaultPaymentMethod } from "./setDefaultPaymentMethod";
 
 /**
  * additional stripe methods
@@ -19,4 +23,8 @@ export class RemedyProductStripe {
   public getAllCards = getAllCards;
   public getCustomer = getCustomer;
   public setDefaultCard = setDefaultCard;
+  public addPaymentMethodToCustomer = addPaymentMethodToCustomer;
+  public deletePaymentMethodFromCustomer = deletePaymentMethodFromCustomer;
+  public getAllPaymentMethods = getAllPaymentMethods;
+  public setDefaultPaymentMethod = setDefaultPaymentMethod;
 }
