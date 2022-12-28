@@ -1,13 +1,11 @@
+global.fetch = require("node-fetch");
 const stripe = require("stripe");
 const { EventEmitter } = require("events");
-const fetch = require("node-fetch");
 const createJSDom = require("jsdom-global");
 const { readFileSync } = require("fs");
 const { join } = require("path");
 const remedyproductStripeJS = require("../../lib/index");
 const { stripeApiVersion } = require("../../lib/utils/constants");
-
-global.fetch = fetch;
 
 /**
  * Clearing the stub to create a browser window object
