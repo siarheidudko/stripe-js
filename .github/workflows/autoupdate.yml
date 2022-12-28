@@ -33,6 +33,7 @@ jobs:
           ref: ${{ github.repository }}
           branch: "master"
           builds-and-checks: |
+            npm run build
             npm test
           debug: "true"
   release:

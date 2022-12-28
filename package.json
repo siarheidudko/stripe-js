@@ -6,6 +6,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "lint": "./node_modules/.bin/eslint -c .eslintrc.js --ext .ts src",
+    "prebuild": "npm run lint",
     "build": "./node_modules/.bin/tsc --declaration",
     "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --exit ./test/*.test.js",
     "doc": "./node_modules/.bin/typedoc --entryPointStrategy expand src"
@@ -19,7 +20,10 @@
     "js",
     "stripe-js",
     "customer",
-    "cards"
+    "card",
+    "payment_intent",
+    "source",
+    "payment_method"
   ],
   "author": "Siarhei Dudko <sdudko@remedypointsolutions.com>",
   "contributors": [
