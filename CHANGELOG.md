@@ -6,7 +6,7 @@
 - Fixed method `confirmPaymentIntentByPaymentMethod`
 - Added tests
 
-# v1.0.0 / 2022-06-27
+# 1.0.0 / 2022-06-27
 
 ### :tada: Enhancements
 
@@ -21,19 +21,19 @@
 - Changed method `getCustomer`
 - Changed method `setDefaultCard`
 
-# v0.0.6 / 2021-12-21
+# 0.0.6 / 2021-12-21
 
 ### :tada: Enhancements
 
 - Add type's declaration
 
-# v0.0.5 / 2021-11-30
+# 0.0.5 / 2021-11-30
 
 ### :tada: Enhancements
 
 - Add new param to `confirmPaymentIntentByCard`
 
-# v0.0.4 / 2021-11-09
+# 0.0.4 / 2021-11-09
 
 ### :tada: Enhancements
 
@@ -42,7 +42,7 @@
 - Added method `setDefaultCard`
 - Updated docs
 
-# v0.0.3 / 2021-11-03
+# 0.0.3 / 2021-11-03
 
 ### :tada: Enhancements
 
@@ -51,13 +51,13 @@
 - Updated ci/cd
 - Updated docs
 
-# v0.0.2 / 2021-11-03
+# 0.0.2 / 2021-11-03
 
 ### :tada: Enhancements
 
 - Updating documentation
 
-# v0.0.1 / 2021-11-03
+# 0.0.1 / 2021-11-03
 
 ### :tada: Enhancements
 
