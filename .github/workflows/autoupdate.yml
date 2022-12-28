@@ -31,7 +31,7 @@ jobs:
         with:
           working-directory: ${{ github.workspace }}/tmp
           ref: ${{ github.repository }}
-          branch: "main"
+          branch: "master"
           builds-and-checks: |
             npm test
           debug: "true"
@@ -48,7 +48,7 @@ jobs:
         id: checkout_repo
         uses: actions/checkout@v3
         with:
-          ref: "main"
+          ref: "master"
       - name: Use Node.js ${{ env.NODE_VERSION }}
         id: setup_node
         uses: actions/setup-node@v3
@@ -79,7 +79,7 @@ jobs:
           tag_name: ${{ env.VERSION }}
           release_name: Release ${{ env.VERSION }}
           body: |
-            see [CHANGELOG.md](https://github.com/siarheidudko/firebase-admin-cli/blob/main/CHANGELOG.md)
+            see [CHANGELOG.md](https://github.com/siarheidudko/firebase-admin-cli/blob/master/CHANGELOG.md)
           draft: false
           prerelease: false
       - name: Publish package to NPM
