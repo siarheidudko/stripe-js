@@ -1,7 +1,7 @@
 import { PaymentMethod } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from "./index";
+import { StripeExtension } from "./index";
 
 /**
  * Delete payment method from customer.
@@ -11,7 +11,7 @@ import { RemedyProductStripe } from "./index";
  * @returns
  */
 export const deletePaymentMethodFromCustomer = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   paymentMethodId: string,
   ephemeralKey: string
 ): Promise<PaymentMethod | undefined> {

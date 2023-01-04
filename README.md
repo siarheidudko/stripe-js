@@ -1,19 +1,19 @@
-# @remedyproduct/stripe-js
+# @sergdudko/stripe-js
 
 Additional methods for working with stripe-js
 
-[![npm](https://img.shields.io/npm/v/@remedyproduct/stripe-js.svg)](https://www.npmjs.com/package/@remedyproduct/stripe-js)
-[![npm](https://img.shields.io/npm/dy/@remedyproduct/stripe-js.svg)](https://www.npmjs.com/package/@remedyproduct/stripe-js)
-[![NpmLicense](https://img.shields.io/npm/l/@remedyproduct/stripe-js.svg)](https://www.npmjs.com/package/@remedyproduct/stripe-js)
-![GitHub last commit](https://img.shields.io/github/last-commit/remedyproduct/stripe-js.svg)
-![GitHub release](https://img.shields.io/github/release/remedyproduct/stripe-js.svg)
+[![npm](https://img.shields.io/npm/v/@sergdudko/stripe-js.svg)](https://www.npmjs.com/package/@sergdudko/stripe-js)
+[![npm](https://img.shields.io/npm/dy/@sergdudko/stripe-js.svg)](https://www.npmjs.com/package/@sergdudko/stripe-js)
+[![NpmLicense](https://img.shields.io/npm/l/@sergdudko/stripe-js.svg)](https://www.npmjs.com/package/@sergdudko/stripe-js)
+![GitHub last commit](https://img.shields.io/github/last-commit/siarheidudko/stripe-js.svg)
+![GitHub release](https://img.shields.io/github/release/siarheidudko/stripe-js.svg)
 
 ## Usage
 
 ### `loadStripe`
 
 ```js
-import { loadStripe } from "@remedyproduct/stripe-js";
+import { loadStripe } from "@sergdudko/stripe-js";
 
 const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 ```

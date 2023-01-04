@@ -1,4 +1,5 @@
 import { confirmPaymentIntentByCard } from "./confirmPaymentIntentByCard";
+import { confirmPaymentIntentByPaymentMethod } from "./confirmPaymentIntentByPaymentMethod";
 import { addSourceToCustomer } from "./addSourceToCustomer";
 import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
 import { getAllCards } from "./getAllCards";
@@ -12,12 +13,14 @@ import { setDefaultPaymentMethod } from "./setDefaultPaymentMethod";
 /**
  * additional stripe methods
  */
-export class RemedyProductStripe {
+export class StripeExtension {
   constructor(apiKey: string) {
     this._apiKey = apiKey;
   }
   public _apiKey: string;
   public confirmPaymentIntentByCard = confirmPaymentIntentByCard;
+  public confirmPaymentIntentByPaymentMethod =
+    confirmPaymentIntentByPaymentMethod;
   public addSourceToCustomer = addSourceToCustomer;
   public deleteSourceFromCustomer = deleteSourceFromCustomer;
   public getAllCards = getAllCards;

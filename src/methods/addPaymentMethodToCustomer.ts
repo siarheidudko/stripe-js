@@ -1,7 +1,7 @@
 import { PaymentMethod } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from "./index";
+import { StripeExtension } from "./index";
 
 /**
  * Add payment method to customer.
@@ -12,7 +12,7 @@ import { RemedyProductStripe } from "./index";
  * @returns
  */
 export const addPaymentMethodToCustomer = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   paymentMethodId: string,
   customerId: string,
   ephemeralKey: string

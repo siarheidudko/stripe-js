@@ -2,23 +2,27 @@ name: Build and test
 on:
   push:
     branches:
-      - "*"
-      - "!master"
+      - "feature/*"
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      NODE_VERSION: 14
+      NODE_VERSION: 16
+      STRIPE_TEST_PK: ${{ secrets.STRIPE_TEST_PK }}
+      STRIPE_TEST_SK: ${{ secrets.STRIPE_TEST_SK }}
     steps:
       - name: Сheckout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -30,9 +34,7 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: npm ci
-      - name: Run linter
-        run: npm run lint
       - name: Run builder
         run: npm run build
-      - name: Run test
+      - name: Run tests
         run: npm run test

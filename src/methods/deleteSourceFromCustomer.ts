@@ -1,7 +1,7 @@
 import { Card } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from "./index";
+import { StripeExtension } from "./index";
 
 /**
  * Delete card from customer.
@@ -12,7 +12,7 @@ import { RemedyProductStripe } from "./index";
  * @returns
  */
 export const deleteSourceFromCustomer = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   sourceId: string,
   customerId: string,
   ephemeralKey: string

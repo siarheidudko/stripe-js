@@ -3,7 +3,7 @@ import {
   StripeConstructorOptions,
   Stripe as StripeDefault,
 } from "@stripe/stripe-js";
-import { RemedyProductStripe } from "./methods/index";
+import { StripeExtension } from "./methods/index";
 
 /**
  * Stripe default interface
@@ -18,7 +18,7 @@ export interface StripeDefaultWithInternal extends StripeDefault {
 /**
  * Stripe patched library
  */
-export interface Stripe extends RemedyProductStripe, StripeDefault {}
+export interface Stripe extends StripeExtension, StripeDefault {}
 
 /**
  * Initialize stripe
@@ -40,9 +40,9 @@ export const loadStripe = async (
     typeof (stripeDefault as StripeDefaultWithInternal)?._apiKey !== "string"
   )
     throw new Error("Initialization error.");
-  const remedyProductStripe = new RemedyProductStripe(
+  const stripeExtension = new StripeExtension(
     (stripeDefault as StripeDefaultWithInternal)._apiKey
   );
-  const stripe: Stripe = Object.assign(remedyProductStripe, stripeDefault);
+  const stripe: Stripe = Object.assign(stripeExtension, stripeDefault);
   return stripe;
 };

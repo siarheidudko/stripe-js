@@ -1,7 +1,7 @@
 import { Card } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from "./index";
+import { StripeExtension } from "./index";
 
 /**
  * Add card to customer (from source or token).
@@ -12,7 +12,7 @@ import { RemedyProductStripe } from "./index";
  * @returns
  */
 export const addSourceToCustomer = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   token: string,
   customerId: string,
   ephemeralKey: string

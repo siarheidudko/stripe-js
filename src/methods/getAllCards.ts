@@ -1,6 +1,6 @@
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from ".";
+import { StripeExtension } from ".";
 
 /**
  * Get all customer's card
@@ -10,7 +10,7 @@ import { RemedyProductStripe } from ".";
  * @returns
  */
 export const getAllCards = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   customerId: string,
   ephemeralKey: string
 ) {

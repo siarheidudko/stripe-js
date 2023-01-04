@@ -1,6 +1,6 @@
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from ".";
+import { StripeExtension } from ".";
 
 /**
  * Set default customer payment method
@@ -11,7 +11,7 @@ import { RemedyProductStripe } from ".";
  * @returns
  */
 export const setDefaultPaymentMethod = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   paymentMethodId: string,
   customerId: string,
   ephemeralKey: string

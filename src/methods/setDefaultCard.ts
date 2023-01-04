@@ -1,6 +1,6 @@
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from ".";
+import { StripeExtension } from ".";
 
 /**
  * Set default customer card
@@ -11,7 +11,7 @@ import { RemedyProductStripe } from ".";
  * @returns
  */
 export const setDefaultCard = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   cardId: string,
   customerId: string,
   ephemeralKey: string
