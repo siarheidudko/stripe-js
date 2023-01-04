@@ -13,7 +13,7 @@ import { setDefaultPaymentMethod } from "./setDefaultPaymentMethod";
 /**
  * additional stripe methods
  */
-export class RemedyProductStripe {
+export class StripeExtension {
   constructor(apiKey: string) {
     this._apiKey = apiKey;
   }

@@ -6,16 +6,16 @@ const {
   stripeAdminSDK,
   stripeApiVersion,
   stripePublicKey,
-  remedyproductStripeJS,
+  stripeExtensionJS,
 } = require("./utils/loader");
 
-const lib = remedyproductStripeJS;
+const lib = stripeExtensionJS;
 
 describe("Checking the initializing function:", function () {
   /**
-   * Stripe Client SDK (remedyproduct/stripe-js)
+   * Stripe Client SDK (sergdudko/stripe-js)
    *
-   * @type {remedyproductStripeJS.Stripe}
+   * @type {stripeExtensionJS.Stripe}
    */
   let stripeClientSDK;
   /**

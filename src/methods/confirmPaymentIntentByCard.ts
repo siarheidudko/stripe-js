@@ -1,7 +1,7 @@
 import { PaymentIntentResult } from "@stripe/stripe-js";
 import { responseHandler } from "../utils/handlers";
 import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { RemedyProductStripe } from "./index";
+import { StripeExtension } from "./index";
 
 /**
  * Confirm payment intent by customer's card
@@ -11,7 +11,7 @@ import { RemedyProductStripe } from "./index";
  * @returns
  */
 export const confirmPaymentIntentByCard = async function (
-  this: RemedyProductStripe,
+  this: StripeExtension,
   paymentIntentSecret: string,
   paymentMethodId: string,
   returnUrl?: string

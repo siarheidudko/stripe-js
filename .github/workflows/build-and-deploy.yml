@@ -84,7 +84,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            see [CHANGELOG.md](https://github.com/remedyproduct/stripe-js/blob/master/CHANGELOG.md)
+            see [CHANGELOG.md](https://github.com/siarheidudko/stripe-js/blob/master/CHANGELOG.md)
           draft: false
           prerelease: false
       - name: Set registry npm packages

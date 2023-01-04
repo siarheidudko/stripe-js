@@ -1,5 +1,5 @@
 {
-  "name": "@remedyproduct/stripe-js",
+  "name": "@sergdudko/stripe-js",
   "version": "1.0.1",
   "description": "Additional methods for working with stripe-js",
   "main": "./lib/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/remedyproduct/stripe-js.git"
+    "url": "git+https://github.com/siarheidudko/stripe-js.git"
   },
   "keywords": [
     "stripe",
@@ -25,15 +25,15 @@
     "source",
     "payment_method"
   ],
-  "author": "Siarhei Dudko <sdudko@remedypointsolutions.com>",
+  "author": "Siarhei Dudko <slavianich@gmail.com>",
   "contributors": [
     "Vadim Nesterovich <vnesterovich@remedypointsolutions.com>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/remedyproduct/stripe-js/issues"
+    "url": "https://github.com/siarheidudko/stripe-js/issues"
   },
-  "homepage": "https://github.com/remedyproduct/stripe-js#readme",
+  "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",

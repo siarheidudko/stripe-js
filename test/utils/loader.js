@@ -4,7 +4,7 @@ const { EventEmitter } = require("events");
 const createJSDom = require("jsdom-global");
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const remedyproductStripeJS = require("../../lib/index");
+const stripeExtensionJS = require("../../lib/index");
 const { stripeApiVersion } = require("../../lib/utils/constants");
 
 /**
@@ -86,7 +86,7 @@ const stripeAdminSDK = stripe(stripeSecretKey, {
 });
 
 module.exports = {
-  remedyproductStripeJS,
+  stripeExtensionJS,
   stripeAdminSDK,
   stripeApiVersion,
   stripePublicKey,

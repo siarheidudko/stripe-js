@@ -14,7 +14,7 @@
   "typedocOptions": {
     "out": "./docs/",
     "theme": "default",
-    "name": "@remedyproduct/stripe-js",
+    "name": "@sergdudko/stripe-js",
     "includeVersion": true,
     "hideGenerator": true
   }
