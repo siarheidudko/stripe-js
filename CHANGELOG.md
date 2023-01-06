@@ -1,3 +1,8 @@
+# 1.0.3 / 2023-01-06
+
+### :bug: Fixes
+-  Deployment bug fixes
+
 # 1.0.2 / 2023-01-06
 
 ### :tada: Enhancements

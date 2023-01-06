@@ -26,6 +26,8 @@ jobs:
         id: autoupdate
         uses: siarheidudko/autoupdater@v3
         with:
+          author-email: "slavianich@gmail.com"
+          author-name: "Siarhei Dudko"
           working-directory: ${{ github.workspace }}/tmp
           ref: ${{ github.repository }}
           branch: "master"
@@ -67,9 +69,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install modules
-        id: install_modules
+      - name: Install dependencies
+        id: install_ci
         run: npm ci
+      - name: Build package
+        id: build_package
+        run: npm run build
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
