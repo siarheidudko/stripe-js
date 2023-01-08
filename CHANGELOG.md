@@ -1,3 +1,8 @@
+# 1.0.4 / 2023-01-08
+
+### :tada: Enhancements
+- Updated dependencies: jsdom, typedoc
+
 # 1.0.3 / 2023-01-06
 
 ### :bug: Fixes
