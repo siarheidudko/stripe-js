@@ -40,7 +40,7 @@
     "chai": "^4.3.7",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.4",
     "jsdom": "^21.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^10.2.0",

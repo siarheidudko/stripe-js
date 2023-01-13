@@ -1,3 +1,8 @@
+# 1.0.6 / 2023-01-13
+
+### :tada: Enhancements
+- Updated dependencies: eslint-plugin-import
+
 # 1.0.5 / 2023-01-10
 
 ### :tada: Enhancements
