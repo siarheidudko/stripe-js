@@ -1,3 +1,8 @@
+# 1.0.14 / 2023-01-31
+
+### :tada: Enhancements
+- Updated dependencies: typescript
+
 # 1.0.13 / 2023-01-29
 
 ### :tada: Enhancements
