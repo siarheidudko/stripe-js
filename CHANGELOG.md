@@ -1,3 +1,8 @@
+# 1.0.17 / 2023-02-04
+
+### :tada: Enhancements
+- Updated dependencies: stripe
+
 # 1.0.16 / 2023-02-03
 
 ### :tada: Enhancements
