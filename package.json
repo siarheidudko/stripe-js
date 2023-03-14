@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "chai": "^4.3.7",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
@@ -51,6 +51,6 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^1.48.0"
+    "@stripe/stripe-js": "^1.49.0"
   }
 }
