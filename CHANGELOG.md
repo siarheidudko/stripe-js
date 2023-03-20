@@ -1,3 +1,8 @@
+# 1.0.36 / 2023-03-20
+
+### :tada: Enhancements
+- Updated dependencies: stripe, typedoc, typescript
+
 # 1.0.35 / 2023-03-14
 
 ### :tada: Enhancements
