@@ -46,9 +46,9 @@
     "mocha": "^10.2.0",
     "node-fetch": "^2.6.7",
     "nyc": "^15.1.0",
-    "stripe": "^11.16.0",
+    "stripe": "^11.17.0",
     "typedoc": "^0.23.28",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "dependencies": {
     "@stripe/stripe-js": "^1.52.0"
