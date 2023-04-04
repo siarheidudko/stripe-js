@@ -26,6 +26,20 @@
     "payment_method"
   ],
   "author": "Siarhei Dudko <slavianich@gmail.com>",
+  "funding": [
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/dudko.dev"
+    },
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/dudkodev"
+    },
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/dudko_dev"
+    }
+  ],
   "contributors": [
     "Vadim Nesterovich <vnesterovich@remedypointsolutions.com>"
   ],
