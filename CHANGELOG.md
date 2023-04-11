@@ -1,3 +1,8 @@
+# 1.0.47 / 2023-04-11
+
+### :tada: Enhancements
+- Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser
+
 # 1.0.46 / 2023-04-09
 
 ### :tada: Enhancements
