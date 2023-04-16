@@ -61,7 +61,7 @@
     "node-fetch": "^2.6.7",
     "nyc": "^15.1.0",
     "stripe": "^12.1.1",
-    "typedoc": "^0.24.1",
+    "typedoc": "^0.24.2",
     "typescript": "^5.0.4"
   },
   "dependencies": {
