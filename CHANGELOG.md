@@ -1,3 +1,8 @@
+# 1.0.60 / 2023-05-06
+
+### :tada: Enhancements
+- Updated dependencies: eslint
+
 # 1.0.59 / 2023-05-05
 
 ### :tada: Enhancements
