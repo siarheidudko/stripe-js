@@ -1,3 +1,8 @@
+# 1.0.65 / 2023-05-20
+
+### :tada: Enhancements
+- Updated dependencies: eslint, stripe
+
 # 1.0.64 / 2023-05-16
 
 ### :tada: Enhancements
