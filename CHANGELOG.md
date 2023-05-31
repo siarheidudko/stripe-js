@@ -1,3 +1,8 @@
+# 1.0.70 / 2023-05-31
+
+### :tada: Enhancements
+- Updated dependencies: @stripe/stripe-js
+
 # 1.0.69 / 2023-05-30
 
 ### :tada: Enhancements

@@ -65,6 +65,6 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^1.53.0"
+    "@stripe/stripe-js": "^1.54.0"
   }
 }
