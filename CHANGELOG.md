@@ -1,3 +1,9 @@
+# 1.0.72 / 2023-10-11
+
+### :tada: Enhancements
+
+- Updated dependencies
+
 # 1.0.71 / 2023-06-02
 
 ### :tada: Enhancements
