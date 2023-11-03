@@ -84,7 +84,7 @@ jobs:
           tag_name: ${{ env.VERSION }}
           release_name: Release ${{ env.VERSION }}
           body: |
-            see [CHANGELOG.md](https://github.com/siarheidudko/firebase-admin-cli/blob/master/CHANGELOG.md)
+            see [CHANGELOG.md](https://github.com/siarheidudko/stripe-js/blob/master/CHANGELOG.md)
           draft: false
           prerelease: false
       - name: Publish package to NPM
