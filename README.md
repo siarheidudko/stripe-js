@@ -1,6 +1,6 @@
 # @sergdudko/stripe-js
 
-Additional methods for working with stripe-js
+Supercharge Your Stripe Integration with Enhanced Methods for stripe-js: Take Full Control of Customer Card Management Right from Your Frontend! Elevate Your Payment Processing Capabilities with Ease and Efficiency.
 
 [![npm](https://img.shields.io/npm/v/@sergdudko/stripe-js.svg)](https://www.npmjs.com/package/@sergdudko/stripe-js)
 [![npm](https://img.shields.io/npm/dy/@sergdudko/stripe-js.svg)](https://www.npmjs.com/package/@sergdudko/stripe-js)
