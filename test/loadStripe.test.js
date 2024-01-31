@@ -1,6 +1,6 @@
 "use strict";
 const { describe, it } = require("mocha");
-const { expect } = require("chai");
+const { expect } = import("chai");
 const { Stripe: StripeAdmin } = require("stripe");
 const {
   stripeAdminSDK,
