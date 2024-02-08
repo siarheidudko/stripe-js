@@ -1,3 +1,8 @@
+# 1.1.14 / 2024-02-08
+
+### :tada: Enhancements
+- Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser, stripe
+
 # 1.1.13 / 2023-11-21
 
 ### :tada: Enhancements
