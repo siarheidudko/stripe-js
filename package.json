@@ -58,10 +58,10 @@
     "eslint-plugin-import": "^2.29.1",
     "jsdom": "^24.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^10.2.0",
+    "mocha": "^10.3.0",
     "node-fetch": "^2.7.0",
     "nyc": "^15.1.0",
-    "stripe": "^14.15.0",
+    "stripe": "^14.16.0",
     "typedoc": "^0.25.7",
     "typescript": "^5.3.3"
   },

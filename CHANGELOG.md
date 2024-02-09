@@ -1,3 +1,8 @@
+# 1.1.15 / 2024-02-09
+
+### :tada: Enhancements
+- Updated dependencies: mocha, stripe
+
 # 1.1.14 / 2024-02-08
 
 ### :tada: Enhancements
