@@ -1,3 +1,8 @@
+# 1.1.16 / 2024-02-10
+
+### :tada: Enhancements
+- Updated dependencies: typedoc
+
 # 1.1.15 / 2024-02-09
 
 ### :tada: Enhancements
