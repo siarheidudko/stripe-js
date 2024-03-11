@@ -1,3 +1,8 @@
+# 1.1.29 / 2024-03-11
+
+### :tada: Enhancements
+- Updated dependencies: stripe, typedoc, typescript
+
 # 1.1.28 / 2024-03-05
 
 ### :tada: Enhancements
