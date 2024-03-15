@@ -61,11 +61,11 @@
     "mocha": "^10.3.0",
     "node-fetch": "^2.7.0",
     "nyc": "^15.1.0",
-    "stripe": "^14.20.0",
+    "stripe": "^14.21.0",
     "typedoc": "^0.25.12",
     "typescript": "^5.4.2"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^3.0.8"
+    "@stripe/stripe-js": "^3.0.10"
   }
 }
