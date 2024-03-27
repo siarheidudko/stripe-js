@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.29.1",
     "jsdom": "^24.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^10.3.0",
+    "mocha": "^10.4.0",
     "node-fetch": "^2.7.0",
     "nyc": "^15.1.0",
     "stripe": "^14.22.0",
