@@ -37,6 +37,7 @@ jobs:
           debug: "true"
           ignore-packages: |
             node-fetch
+            eslint
   release:
     runs-on: ubuntu-latest
     timeout-minutes: 15
