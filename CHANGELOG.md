@@ -1,3 +1,8 @@
+# 1.1.40 / 2024-06-12
+
+### :tada: Enhancements
+- Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, chai, jsdom, nyc, stripe, typedoc, typescript
+
 # 1.1.39 / 2024-04-05
 
 ### :tada: Enhancements
