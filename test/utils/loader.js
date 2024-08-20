@@ -1,4 +1,3 @@
-global.fetch = require("node-fetch");
 const stripe = require("stripe");
 const { EventEmitter } = require("events");
 const createJSDom = require("jsdom-global");
@@ -28,10 +27,9 @@ const createDom = () => {
   cleanDom = () => {
     eventEmitter.removeAllListeners();
     global.document.querySelectorAll = global.document._querySelectorAll;
-    console.warn(
-      "An error occurs here that document was not found. And use the --exit flag with mocha to bypass."
-    );
-    return cleanJSDom();
+    console.warn("An error occurs here that document was not found.");
+    cleanJSDom();
+    process.exit(process.exitCode);
   };
   global.document._querySelectorAll = global.document.querySelectorAll;
   global.document.querySelectorAll = function () {

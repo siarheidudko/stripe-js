@@ -5,10 +5,10 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.js --ext .ts src",
+    "lint": "./node_modules/.bin/eslint src/**/*.ts",
     "prebuild": "npm run lint",
     "build": "./node_modules/.bin/tsc --declaration",
-    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha --exit ./test/*.test.js -r chai/register-expect.js",
+    "test": "./node_modules/.bin/nyc node --test ./test/*.test.js",
     "doc": "./node_modules/.bin/typedoc --entryPointStrategy expand src",
     "update": "eval \"$(node -e 'const t = require(`./package.json`);const ignore = require(`./ignoreUpdatesModules.json`);console.log(`npm i ${(Object.keys(t.dependencies||{}).filter((e)=>ignore.base.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save&&npm i ${(Object.keys(t.devDependencies||{}).filter((e)=>ignore.dev.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save-dev`);')\""
   },
@@ -50,22 +50,18 @@
   },
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.13.1",
-    "@typescript-eslint/parser": "^7.13.1",
-    "chai": "^5.1.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "jsdom": "^24.1.0",
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "jsdom": "^24.1.1",
     "jsdom-global": "^3.0.2",
-    "mocha": "^10.4.0",
-    "node-fetch": "^2.7.0",
     "nyc": "^17.0.0",
-    "stripe": "^15.12.0",
-    "typedoc": "^0.25.13",
-    "typescript": "^5.5.2"
+    "prettier": "^3.3.3",
+    "stripe": "^16.8.0",
+    "typedoc": "^0.26.6",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^4.0.0"
+    "@stripe/stripe-js": "^4.3.0"
   }
 }

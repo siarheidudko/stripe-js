@@ -1,2 +1,2 @@
 export const stripeApiUrl = "https://api.stripe.com/v1";
-export const stripeApiVersion = "2023-08-16";
+export const stripeApiVersion = "2024-06-20";

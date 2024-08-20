@@ -1,216 +1,265 @@
+# 1.2.0 / 2024-08-20
+
+### :tada: Enhancements
+
+- Updated dependencies
+
 # 1.1.43 / 2024-06-21
 
 ### :tada: Enhancements
+
 - Updated dependencies: typescript
 
 # 1.1.42 / 2024-06-18
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, stripe
 
 # 1.1.41 / 2024-06-14
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.40 / 2024-06-12
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, chai, jsdom, nyc, stripe, typedoc, typescript
 
 # 1.1.39 / 2024-04-05
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe, typescript
 
 # 1.1.38 / 2024-04-02
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.37 / 2024-03-29
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.36 / 2024-03-27
 
 ### :tada: Enhancements
+
 - Updated dependencies: mocha
 
 # 1.1.35 / 2024-03-26
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.34 / 2024-03-22
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.33 / 2024-03-21
 
 ### :tada: Enhancements
+
 - Updated dependencies: typescript
 
 # 1.1.32 / 2024-03-19
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.31 / 2024-03-15
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, stripe
 
 # 1.1.30 / 2024-03-12
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.29 / 2024-03-11
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe, typedoc, typescript
 
 # 1.1.28 / 2024-03-05
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.27 / 2024-03-04
 
 ### :tada: Enhancements
+
 - Updated dependencies: typedoc
 
 # 1.1.26 / 2024-03-01
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.25 / 2024-02-27
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, typedoc
 
 # 1.1.24 / 2024-02-24
 
 ### :tada: Enhancements
+
 - Updated dependencies: eslint
 
 # 1.1.23 / 2024-02-23
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.22 / 2024-02-22
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js
 
 # 1.1.21 / 2024-02-20
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.20 / 2024-02-16
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, stripe
 
 # 1.1.19 / 2024-02-15
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js
 
 # 1.1.18 / 2024-02-14
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js
 
 # 1.1.17 / 2024-02-13
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, chai
 
 # 1.1.16 / 2024-02-10
 
 ### :tada: Enhancements
+
 - Updated dependencies: typedoc
 
 # 1.1.15 / 2024-02-09
 
 ### :tada: Enhancements
+
 - Updated dependencies: mocha, stripe
 
 # 1.1.14 / 2024-02-08
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser, stripe
 
 # 1.1.13 / 2023-11-21
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, typescript
 
 # 1.1.12 / 2023-11-18
 
 ### :tada: Enhancements
+
 - Updated dependencies: eslint
 
 # 1.1.11 / 2023-11-17
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.10 / 2023-11-14
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.9 / 2023-11-10
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.8 / 2023-11-07
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.7 / 2023-11-04
 
 ### :tada: Enhancements
+
 - Updated dependencies: eslint
 
 # 1.1.6 / 2023-11-03
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, stripe
 
 # 1.1.5 / 2023-10-31
 
 ### :tada: Enhancements
+
 - Updated dependencies: @typescript-eslint/eslint-plugin, @typescript-eslint/parser
 
 # 1.1.4 / 2023-10-30
 
 ### :tada: Enhancements
+
 - Updated dependencies: typedoc
 
 # 1.1.3 / 2023-10-27
 
 ### :tada: Enhancements
+
 - Updated dependencies: stripe
 
 # 1.1.2 / 2023-10-24
 
 ### :tada: Enhancements
+
 - Updated dependencies: @stripe/stripe-js, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, eslint-plugin-import
 
 # 1.1.1 / 2023-10-21
 
 ### :tada: Enhancements
+
 - Updated dependencies: eslint
 
 # 1.1.0 / 2023-10-18

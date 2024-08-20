@@ -1,11 +1,13 @@
 "use strict";
-const { describe, it } = require("mocha");
+const { describe, it, before, after } = require("node:test");
+const assert = require("node:assert");
 const { Stripe: StripeAdmin } = require("stripe");
 const {
   stripeAdminSDK,
   stripeApiVersion,
   stripePublicKey,
   stripeExtensionJS,
+  cleanDom,
 } = require("./utils/loader");
 
 const lib = stripeExtensionJS;
@@ -29,8 +31,7 @@ describe("Checking the initializing function:", function () {
    * @type {StripeAdmin.Response<StripeAdmin.EphemeralKey>}
    */
   let ephemeralKey;
-  this.timeout(15000);
-  this.beforeAll(async () => {
+  before(async () => {
     customer = await stripeAdminSDK.customers.create({
       description: "Test customer",
     });
@@ -42,26 +43,28 @@ describe("Checking the initializing function:", function () {
     );
     return;
   });
-  this.afterAll(async () => {
+  after(async () => {
     if (customer)
       await stripeAdminSDK.customers.del(customer.id).catch((err) => {
         console.log(err);
       });
+    global.window.close();
+    cleanDom();
     return;
   });
   it("Checking the type of initializing function", async function () {
-    expect(lib.loadStripe).to.be.an("function");
+    assert.equal(typeof lib.loadStripe, "function");
     return;
   });
   it("Checking the operation of the initializing function", async function () {
     const stripeClientLoader = lib.loadStripe(stripePublicKey, {
       apiVersion: stripeApiVersion,
     });
-    expect(stripeClientLoader).to.be.instanceOf(Promise);
+    assert.equal(stripeClientLoader instanceof Promise, true);
     stripeClientSDK = await stripeClientLoader;
-    expect(stripeClientSDK).to.be.an("object");
-    expect(stripeClientSDK).to.have.property("_apiKey", stripePublicKey);
-    expect(stripeClientSDK).to.have.property("_keyMode", "test");
+    assert.equal(typeof stripeClientSDK, "object");
+    assert.equal(stripeClientSDK._apiKey, stripePublicKey);
+    assert.equal(stripeClientSDK?._keyMode, "test");
     return;
   });
   it("Checking any original method (retrievePaymentIntent)", async function () {
@@ -71,31 +74,11 @@ describe("Checking the initializing function:", function () {
      * supported by jsdom. We assume that if the library code could be run,
      * then all methods will work. Otherwise it will take too much pointless work.
      */
-    expect(stripeClientSDK)
-      .to.have.property("retrievePaymentIntent")
-      .to.be.an("function");
-    // const paymentIntent = await stripeAdminSDK.paymentIntents.create({
-    //   amount: 100,
-    //   currency: "usd",
-    // });
-    // const t = await stripeClientSDK.retrievePaymentIntent(
-    //   paymentIntent.client_secret
-    // );
-    // console.log(t);
-    // const pi = t.paymentIntent;
-    // expect(pi).to.be.an("object");
-    // expect(pi).to.deep.include({
-    //   id: paymentIntent.id,
-    //   description: paymentIntent.description,
-    //   amount: paymentIntent.amount,
-    //   currency: paymentIntent.currency,
-    // });
+    assert.equal(typeof stripeClientSDK.retrievePaymentIntent, "function");
     return;
   });
   it("Checking method confirmPaymentIntentByCard", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("confirmPaymentIntentByCard")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.confirmPaymentIntentByCard, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
@@ -116,15 +99,17 @@ describe("Checking the initializing function:", function () {
       const paymentIntentData = await stripeAdminSDK.paymentIntents.retrieve(
         paymentIntent.id
       );
-      expect(paymentIntentData).to.be.an("object").to.deep.include({
-        id: paymentIntent.id,
-        customer: paymentIntent.customer,
-        amount: paymentIntent.amount,
-        currency: paymentIntent.currency,
-        capture_method: paymentIntent.capture_method,
-        payment_method: card.id,
-        status: "requires_capture",
-      });
+      assert.equal(typeof paymentIntentData, "object");
+      assert.equal(paymentIntentData.id, paymentIntent.id);
+      assert.equal(paymentIntentData.customer, paymentIntent.customer);
+      assert.equal(paymentIntentData.amount, paymentIntent.amount);
+      assert.equal(paymentIntentData.currency, paymentIntent.currency);
+      assert.equal(
+        paymentIntentData.capture_method,
+        paymentIntent.capture_method
+      );
+      assert.equal(paymentIntentData.payment_method, card.id);
+      assert.equal(paymentIntentData.status, "requires_capture");
     } catch (err) {
       e = err;
     } finally {
@@ -143,9 +128,10 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method confirmPaymentIntentByPaymentMethod", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("confirmPaymentIntentByPaymentMethod")
-      .to.be.an("function");
+    assert.equal(
+      typeof stripeClientSDK.confirmPaymentIntentByPaymentMethod,
+      "function"
+    );
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
@@ -170,15 +156,17 @@ describe("Checking the initializing function:", function () {
       const paymentIntentData = await stripeAdminSDK.paymentIntents.retrieve(
         paymentIntent.id
       );
-      expect(paymentIntentData).to.be.an("object").to.deep.include({
-        id: paymentIntent.id,
-        customer: paymentIntent.customer,
-        amount: paymentIntent.amount,
-        currency: paymentIntent.currency,
-        capture_method: paymentIntent.capture_method,
-        payment_method: paymentMethod.id,
-        status: "requires_capture",
-      });
+      assert.equal(typeof paymentIntentData, "object");
+      assert.equal(paymentIntentData.id, paymentIntent.id);
+      assert.equal(paymentIntentData.customer, paymentIntent.customer);
+      assert.equal(paymentIntentData.amount, paymentIntent.amount);
+      assert.equal(paymentIntentData.currency, paymentIntent.currency);
+      assert.equal(
+        paymentIntentData.capture_method,
+        paymentIntent.capture_method
+      );
+      assert.equal(paymentIntentData.payment_method, paymentMethod.id);
+      assert.equal(paymentIntentData.status, "requires_capture");
     } catch (err) {
       e = err;
     } finally {
@@ -197,9 +185,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method addSourceToCustomer", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("addSourceToCustomer")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.addSourceToCustomer, "function");
     let e, cardId;
     try {
       const card = await stripeClientSDK.addSourceToCustomer(
@@ -212,10 +198,9 @@ describe("Checking the initializing function:", function () {
         customer.id,
         card.id
       );
-      expect(sourceData).to.deep.include({
-        id: card.id,
-        customer: customer.id,
-      });
+      assert.equal(typeof sourceData, "object");
+      assert.equal(sourceData.id, card.id);
+      assert.equal(sourceData.customer, customer.id);
     } catch (err) {
       e = err;
     } finally {
@@ -230,9 +215,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method deleteSourceFromCustomer", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("deleteSourceFromCustomer")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.deleteSourceFromCustomer, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
@@ -251,10 +234,9 @@ describe("Checking the initializing function:", function () {
           );
         })
         .catch((err) => {
-          expect(err)
-            .to.be.an("error")
-            .to.have.property("type", "StripeInvalidRequestError");
-          expect(err).to.have.property("code", "resource_missing");
+          assert.equal(err instanceof Error, true);
+          assert.equal(err.type, "StripeInvalidRequestError");
+          assert.equal(err.code, "resource_missing");
         });
     } catch (err) {
       e = err;
@@ -271,9 +253,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method getAllCards", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("getAllCards")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.getAllCards, "function");
     const card1 = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
@@ -289,17 +269,15 @@ describe("Checking the initializing function:", function () {
         customer.id,
         ephemeralKey.secret
       );
-      expect(cards).to.be.an("object").to.have.property("object", "list");
-      expect(cards)
-        .to.be.an("object")
-        .to.have.property("data")
-        .to.be.an("array")
-        .lengthOf(3);
-      expect(cards.data.map((c) => c.id)).to.have.members([
-        card1.id,
-        card2.id,
-        card3.id,
-      ]);
+      assert.equal(typeof cards, "object");
+      assert.equal(cards.object, "list");
+      assert.equal(Array.isArray(cards.data), true);
+      assert.equal(cards.data.length, 3);
+      cards.data
+        .map((c) => c.id)
+        .forEach((e) => {
+          assert.equal([card1.id, card2.id, card3.id].includes(e), true);
+        });
     } catch (err) {
       e = err;
     } finally {
@@ -323,24 +301,18 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method getCustomer", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("getCustomer")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.getCustomer, "function");
     const loadedCustomer = await stripeClientSDK.getCustomer(
       customer.id,
       ephemeralKey.secret
     );
-    expect(loadedCustomer).to.be.an("object");
-    expect(loadedCustomer).to.deep.include({
-      id: customer.id,
-      description: customer.description,
-    });
+    assert.equal(typeof loadedCustomer, "object");
+    assert.equal(loadedCustomer.id, customer.id);
+    assert.equal(loadedCustomer.description, customer.description);
     return;
   });
   it("Checking method setDefaultCard", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("setDefaultCard")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.setDefaultCard, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
@@ -352,9 +324,8 @@ describe("Checking the initializing function:", function () {
         ephemeralKey.secret
       );
       const customerData = await stripeAdminSDK.customers.retrieve(customer.id);
-      expect(customerData).to.deep.include({
-        default_source: card.id,
-      });
+      assert.equal(typeof customerData, "object");
+      assert.equal(customerData.default_source, card.id);
     } catch (err) {
       e = err;
     } finally {
@@ -368,9 +339,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method addPaymentMethodToCustomer", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("addPaymentMethodToCustomer")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.addPaymentMethodToCustomer, "function");
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
@@ -386,14 +355,13 @@ describe("Checking the initializing function:", function () {
         customer: customer.id,
         type: "card",
       });
-      expect(customerPaymentMethods)
-        .to.be.an("object")
-        .to.have.property("data")
-        .to.be.an("array")
-        .lengthOf(1);
-      expect(customerPaymentMethods.data.map((c) => c.id)).to.have.members([
-        paymentMethod.id,
-      ]);
+      assert.equal(typeof customerPaymentMethods, "object");
+      assert.equal(Array.isArray(customerPaymentMethods.data), true);
+      assert.equal(customerPaymentMethods.data.length, 1);
+      assert.equal(
+        customerPaymentMethods.data.map((c) => c.id).includes(paymentMethod.id),
+        true
+      );
     } catch (err) {
       e = err;
     } finally {
@@ -407,9 +375,10 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method deletePaymentMethodFromCustomer", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("deletePaymentMethodFromCustomer")
-      .to.be.an("function");
+    assert.equal(
+      typeof stripeClientSDK.deletePaymentMethodFromCustomer,
+      "function"
+    );
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
@@ -427,11 +396,9 @@ describe("Checking the initializing function:", function () {
         customer: customer.id,
         type: "card",
       });
-      expect(customerPaymentMethods)
-        .to.be.an("object")
-        .to.have.property("data")
-        .to.be.an("array")
-        .lengthOf(0);
+      assert.equal(typeof customerPaymentMethods, "object");
+      assert.equal(Array.isArray(customerPaymentMethods.data), true);
+      assert.equal(customerPaymentMethods.data.length, 0);
     } catch (err) {
       e = err;
     } finally {
@@ -447,9 +414,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method getAllPaymentMethods", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("getAllPaymentMethods")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.getAllPaymentMethods, "function");
     const paymentMethod1 = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
@@ -477,19 +442,20 @@ describe("Checking the initializing function:", function () {
         customer.id,
         ephemeralKey.secret
       );
-      expect(paymentMethods)
-        .to.be.an("object")
-        .to.have.property("object", "list");
-      expect(paymentMethods)
-        .to.be.an("object")
-        .to.have.property("data")
-        .to.be.an("array")
-        .lengthOf(3);
-      expect(paymentMethods.data.map((c) => c.id)).to.have.members([
-        paymentMethod1.id,
-        paymentMethod2.id,
-        paymentMethod3.id,
-      ]);
+      assert.equal(typeof paymentMethods, "object");
+      assert.equal(paymentMethods.object, "list");
+      assert.equal(Array.isArray(paymentMethods.data), true);
+      assert.equal(paymentMethods.data.length, 3);
+      paymentMethods.data
+        .map((c) => c.id)
+        .forEach((e) => {
+          assert.equal(
+            [paymentMethod1.id, paymentMethod2.id, paymentMethod3.id].includes(
+              e
+            ),
+            true
+          );
+        });
     } catch (err) {
       e = err;
     } finally {
@@ -513,9 +479,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking method setDefaultPaymentMethod", async function () {
-    expect(stripeClientSDK)
-      .to.have.property("setDefaultPaymentMethod")
-      .to.be.an("function");
+    assert.equal(typeof stripeClientSDK.setDefaultPaymentMethod, "function");
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
@@ -531,13 +495,12 @@ describe("Checking the initializing function:", function () {
         ephemeralKey.secret
       );
       const customerData = await stripeAdminSDK.customers.retrieve(customer.id);
-      expect(customerData)
-        .to.be.an("object")
-        .to.have.property("invoice_settings")
-        .to.be.an("object")
-        .to.be.include({
-          default_payment_method: paymentMethod.id,
-        });
+      assert.equal(typeof customerData, "object");
+      assert.equal(typeof customerData.invoice_settings, "object");
+      assert.equal(
+        customerData.invoice_settings.default_payment_method,
+        paymentMethod.id
+      );
     } catch (err) {
       e = err;
     } finally {

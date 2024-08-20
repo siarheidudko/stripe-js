@@ -8,3 +8,4 @@ test
 .npmignore
 tsconfig.json
 .vscode
+eslint.config.mjs
