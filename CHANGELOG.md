@@ -1,3 +1,8 @@
+# 1.2.2 / 2024-08-26
+
+### :tada: Enhancements
+- Updated dependencies: jsdom
+
 # 1.2.1 / 2024-08-24
 
 ### :tada: Enhancements
