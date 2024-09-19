@@ -1,3 +1,8 @@
+# 1.2.13 / 2024-09-19
+
+### :tada: Enhancements
+- Updated dependencies: stripe
+
 # 1.2.12 / 2024-09-17
 
 ### :tada: Enhancements
