@@ -1,3 +1,8 @@
+# 1.2.14 / 2024-09-20
+
+### :tada: Enhancements
+- Updated dependencies: nyc
+
 # 1.2.13 / 2024-09-19
 
 ### :tada: Enhancements
