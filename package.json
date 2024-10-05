@@ -50,18 +50,18 @@
   },
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
-    "@eslint/js": "^9.11.1",
-    "eslint": "^9.11.1",
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
     "jsdom": "^25.0.1",
     "jsdom-global": "^3.0.2",
     "nyc": "^17.1.0",
     "prettier": "^3.3.3",
     "stripe": "^17.1.0",
-    "typedoc": "^0.26.7",
+    "typedoc": "^0.26.8",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.8.0"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^4.6.0"
+    "@stripe/stripe-js": "^4.7.0"
   }
 }
