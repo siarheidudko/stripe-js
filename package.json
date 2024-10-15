@@ -1,6 +1,6 @@
 {
   "name": "@sergdudko/stripe-js",
-  "version": "1.2.25",
+  "version": "1.2.26",
   "description": "Additional methods for working with stripe-js",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
