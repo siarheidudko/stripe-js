@@ -1,3 +1,8 @@
+# 1.2.62 / 2025-02-10
+
+### :tada: Enhancements
+- Updated dependencies: prettier, typedoc
+
 # 1.2.61 / 2025-02-08
 
 ### :tada: Enhancements
