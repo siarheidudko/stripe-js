@@ -55,7 +55,7 @@
     "jsdom": "^26.0.0",
     "jsdom-global": "^3.0.2",
     "nyc": "^17.1.0",
-    "prettier": "^3.5.1",
+    "prettier": "^3.5.2",
     "stripe": "^17.6.0",
     "typedoc": "^0.27.8",
     "typescript": "^5.7.3",
