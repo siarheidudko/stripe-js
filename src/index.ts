@@ -30,7 +30,7 @@ export interface Stripe extends StripeExtension, StripeDefault {}
 export const loadStripe = async (
   publishableKey: string,
   options: StripeConstructorOptions | undefined
-) => {
+): Promise<Stripe> => {
   const stripeDefault: StripeDefault | null = await loadStripeDefault(
     publishableKey,
     options
@@ -45,6 +45,6 @@ export const loadStripe = async (
     // eslint-disable-next-line no-underscore-dangle
     (stripeDefault as StripeDefaultWithInternal)._apiKey
   );
-  const stripe: Stripe = Object.assign(stripeExtension, stripeDefault);
+  const stripe: Stripe = Object.assign(stripeDefault, stripeExtension);
   return stripe;
 };

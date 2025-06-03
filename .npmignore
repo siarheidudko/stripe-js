@@ -9,3 +9,4 @@ test
 tsconfig.json
 .vscode
 eslint.config.mjs
+.env.local

@@ -33,17 +33,26 @@ const createDom = () => {
   };
   global.document._querySelectorAll = global.document.querySelectorAll;
   global.document.querySelectorAll = function () {
-    if (
-      arguments[0] === 'script[src^="https://js.stripe.com/v3"]' &&
-      !scriptNode
-    ) {
+    const scriptUrl = arguments[0]?.match(
+      /^script\[src\^=(["'])(https?:\/\/[^"']+|\/\/[^"']+|\/[^"']+)\1\]$/i
+    )?.[2];
+    const isStripeUrl = /^https:\/\/js\.stripe\.com(\/v\d)?\/?$/i.test(
+      scriptUrl
+    );
+    const isNewStripeUrl = /^https:\/\/js\.stripe\.com\/?$/i.test(scriptUrl);
+    const stripeUrl = isStripeUrl
+      ? isNewStripeUrl
+        ? `https://js.stripe.com/basil/stripe.js`
+        : `https://js.stripe.com/v3`
+      : undefined;
+    if (stripeUrl && !scriptNode) {
       scriptNode = global.document.createElement("script");
-      scriptNode.src = "https://js.stripe.com/v3";
+      scriptNode.src = stripeUrl;
       scriptNode.addEventListener = function () {
         eventEmitter.on(arguments[0], arguments[1]);
       };
       global.document.head.appendChild(scriptNode);
-      fetch("https://js.stripe.com/v3")
+      fetch(stripeUrl)
         .then((response) => response.text())
         .then(async (text) => {
           eval(text);

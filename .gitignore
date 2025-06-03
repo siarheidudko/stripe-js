@@ -6,3 +6,4 @@ lib
 docs
 .vscode/
 .idea/
+.env.local

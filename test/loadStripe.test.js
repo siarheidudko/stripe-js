@@ -57,9 +57,7 @@ describe("Checking the initializing function:", function () {
     return;
   });
   it("Checking the operation of the initializing function", async function () {
-    const stripeClientLoader = lib.loadStripe(stripePublicKey, {
-      apiVersion: stripeApiVersion,
-    });
+    const stripeClientLoader = lib.loadStripe(stripePublicKey);
     assert.equal(stripeClientLoader instanceof Promise, true);
     stripeClientSDK = await stripeClientLoader;
     assert.equal(typeof stripeClientSDK, "object");
