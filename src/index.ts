@@ -37,10 +37,12 @@ export const loadStripe = async (
   );
   if (
     stripeDefault === null ||
+    // eslint-disable-next-line no-underscore-dangle
     typeof (stripeDefault as StripeDefaultWithInternal)?._apiKey !== "string"
   )
     throw new Error("Initialization error.");
   const stripeExtension = new StripeExtension(
+    // eslint-disable-next-line no-underscore-dangle
     (stripeDefault as StripeDefaultWithInternal)._apiKey
   );
   const stripe: Stripe = Object.assign(stripeExtension, stripeDefault);

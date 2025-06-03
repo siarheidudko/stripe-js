@@ -17,9 +17,9 @@ export const addSourceToCustomer = async function (
   customerId: string,
   ephemeralKey: string
 ): Promise<Card | undefined> {
-  /* eslint-disable */
+   
   const stripeApiKey = this._apiKey;
-  /* eslint-enable */
+   
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 

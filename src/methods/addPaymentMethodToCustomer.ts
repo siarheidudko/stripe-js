@@ -17,9 +17,9 @@ export const addPaymentMethodToCustomer = async function (
   customerId: string,
   ephemeralKey: string
 ): Promise<PaymentMethod | undefined> {
-  /* eslint-disable */
+   
   const stripeApiKey = this._apiKey;
-  /* eslint-enable */
+   
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 

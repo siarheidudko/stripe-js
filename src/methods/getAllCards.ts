@@ -14,9 +14,9 @@ export const getAllCards = async function (
   customerId: string,
   ephemeralKey: string
 ) {
-  /* eslint-disable */
+   
   const stripeApiKey = this._apiKey;
-  /* eslint-enable */
+   
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 

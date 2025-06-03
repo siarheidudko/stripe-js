@@ -16,9 +16,9 @@ export const confirmPaymentIntentByCard = async function (
   paymentMethodId: string,
   returnUrl?: string
 ): Promise<PaymentIntentResult["paymentIntent"] | undefined> {
-  /* eslint-disable */
+   
   const stripeApiKey = this._apiKey;
-  /* eslint-enable */
+   
   if (typeof stripeApiKey !== "string")
     throw new Error("Initialization failed.");
 
