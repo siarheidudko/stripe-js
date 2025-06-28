@@ -1,3 +1,8 @@
+# 1.3.7 / 2025-06-28
+
+### :tada: Enhancements
+- Updated dependencies: @eslint/js, eslint, prettier, typedoc
+
 # 1.3.6 / 2025-06-26
 
 ### :tada: Enhancements
