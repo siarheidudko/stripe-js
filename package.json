@@ -58,7 +58,7 @@
     "nyc": "^17.1.0",
     "prettier": "^3.6.2",
     "stripe": "^18.2.1",
-    "typedoc": "^0.28.6",
+    "typedoc": "^0.28.7",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.0"
   },
