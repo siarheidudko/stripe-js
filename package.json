@@ -60,7 +60,7 @@
     "stripe": "^18.3.0",
     "typedoc": "^0.28.7",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.37.0"
+    "typescript-eslint": "^8.38.0"
   },
   "dependencies": {
     "@stripe/stripe-js": "^7.5.0"
