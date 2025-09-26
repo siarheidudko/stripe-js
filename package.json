@@ -1,7 +1,7 @@
 {
   "name": "@sergdudko/stripe-js",
-  "version": "3.0.0",
-  "description": "Additional methods for working with stripe-js",
+  "version": "1.0.0",
+  "description": "Supercharge Your Stripe Integration with Enhanced Methods for stripe-js: Take Full Control of Customer Card Management Right from Your Frontend! Elevate Your Payment Processing Capabilities with Ease and Efficiency.",
   "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/esm.js",
