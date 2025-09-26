@@ -5,6 +5,7 @@ import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
 import { getAllCards } from "./getAllCards";
 import { getCustomer } from "./getCustomer";
 import { setDefaultCard } from "./setDefaultCard";
+import { getDefaultCard } from "./getDefaultCard";
 import { addPaymentMethodToCustomer } from "./addPaymentMethodToCustomer";
 import { deletePaymentMethodFromCustomer } from "./deletePaymentMethodFromCustomer";
 import { getAllPaymentMethods } from "./getAllPaymentMethods";
@@ -26,6 +27,7 @@ export class StripeExtension {
   public getAllCards = getAllCards;
   public getCustomer = getCustomer;
   public setDefaultCard = setDefaultCard;
+  public getDefaultCard = getDefaultCard;
   public addPaymentMethodToCustomer = addPaymentMethodToCustomer;
   public deletePaymentMethodFromCustomer = deletePaymentMethodFromCustomer;
   public getAllPaymentMethods = getAllPaymentMethods;

@@ -1,24 +1,9 @@
 import {
   loadStripe as loadStripeDefault,
   StripeConstructorOptions,
-  Stripe as StripeDefault,
 } from "@stripe/stripe-js";
 import { StripeExtension } from "./methods/index";
-
-/**
- * Stripe default interface
- */
-export interface StripeDefaultWithInternal extends StripeDefault {
-  /**
-   * Stripe api key after initialization, like pk_...
-   */
-  _apiKey: string;
-}
-
-/**
- * Stripe patched library
- */
-export interface Stripe extends StripeExtension, StripeDefault {}
+import { Stripe, StripeDefaultWithInternal } from "./types";
 
 /**
  * Initialize stripe
@@ -29,12 +14,9 @@ export interface Stripe extends StripeExtension, StripeDefault {}
  */
 export const loadStripe = async (
   publishableKey: string,
-  options: StripeConstructorOptions | undefined
+  options?: StripeConstructorOptions
 ): Promise<Stripe> => {
-  const stripeDefault: StripeDefault | null = await loadStripeDefault(
-    `${publishableKey}`,
-    options
-  );
+  const stripeDefault = await loadStripeDefault(`${publishableKey}`, options);
   if (
     stripeDefault === null ||
     // eslint-disable-next-line no-underscore-dangle
@@ -48,3 +30,6 @@ export const loadStripe = async (
   const stripe: Stripe = Object.assign(stripeDefault, stripeExtension);
   return stripe;
 };
+
+// Re-export types for consumers
+export type { Stripe, StripeDefaultWithInternal } from "./types";
