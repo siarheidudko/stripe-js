@@ -3,19 +3,12 @@
     "module": "commonjs",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "lib",
+    "outDir": "dist",
     "sourceMap": true,
     "strict": true,
     "target": "es2020",
     "moduleResolution": "node"
   },
   "compileOnSave": true,
-  "include": ["src"],
-  "typedocOptions": {
-    "out": "./docs/",
-    "theme": "default",
-    "name": "@sergdudko/stripe-js",
-    "includeVersion": true,
-    "hideGenerator": true
-  }
+  "include": ["src"]
 }

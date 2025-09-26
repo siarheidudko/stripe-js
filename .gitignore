@@ -1,6 +1,7 @@
 $ cat .gitignore
 node_modules
 lib
+dist
 .nyc_output
 *.log
 docs

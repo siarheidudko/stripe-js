@@ -38,11 +38,11 @@ jobs:
         run: npm run build
       - name: Run tests
         run: npm run test
-      - name: Archiving lib directory
+      - name: Archiving dist directory
         uses: actions/upload-artifact@v4
         with:
-          name: lib
-          path: ${{ github.workspace }}/lib
+          name: dist
+          path: ${{ github.workspace }}/dist
           retention-days: 1
   deploy:
     runs-on: ubuntu-latest
@@ -53,11 +53,11 @@ jobs:
     steps:
       - name: Сheckout repo
         uses: actions/checkout@v4
-      - name: Unarchiving lib directory
+      - name: Unarchiving dist directory
         uses: actions/download-artifact@v4
         with:
-          name: lib
-          path: ${{ github.workspace }}/lib
+          name: dist
+          path: ${{ github.workspace }}/dist
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:

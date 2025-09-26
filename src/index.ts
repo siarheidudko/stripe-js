@@ -32,7 +32,7 @@ export const loadStripe = async (
   options: StripeConstructorOptions | undefined
 ): Promise<Stripe> => {
   const stripeDefault: StripeDefault | null = await loadStripeDefault(
-    publishableKey,
+    `${publishableKey}`,
     options
   );
   if (

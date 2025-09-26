@@ -3,8 +3,8 @@ const { EventEmitter } = require("events");
 const createJSDom = require("jsdom-global");
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const stripeExtensionJS = require("../../lib/index");
-const { stripeApiVersion } = require("../../lib/utils/constants");
+const stripeExtensionJS = require("../../dist/index");
+const { stripeApiVersion } = require("../../dist/utils/constants");
 
 /**
  * Clearing the stub to create a browser window object
