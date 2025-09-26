@@ -8,12 +8,28 @@ Supercharge Your Stripe Integration with Enhanced Methods for stripe-js: Take Fu
 ![GitHub last commit](https://img.shields.io/github/last-commit/siarheidudko/stripe-js.svg)
 ![GitHub release](https://img.shields.io/github/release/siarheidudko/stripe-js.svg)
 
+## 🚀 What's New in v2.0.0
+
+- ✅ **Dual Package**: Full support for both CommonJS and ES Modules
+- ✅ **TypeScript**: Complete type definitions and TypeScript source
+- ✅ **Optimized Types**: Shared type definitions for smaller bundle size
+- ✅ **TypeScript Tests**: All tests converted to TypeScript with `node --test --import tsx`
+- ✅ **Better Tree-shaking**: Optimized module structure for better bundling
+
 ## Usage
 
-### `loadStripe`
+### ES Modules (Recommended)
 
-```js
+```typescript
 import { loadStripe } from "@sergdudko/stripe-js";
+
+const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+```
+
+### CommonJS
+
+```javascript
+const { loadStripe } = require("@sergdudko/stripe-js");
 
 const stripe = await loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 ```
@@ -118,3 +134,28 @@ stripe.setDefaultPaymentMethod(
 - To run build `npm run build`.
 - To run testing `npm run test`.
 - To create docs `npm run doc`.
+
+## 📄 License
+
+MIT License - see [LICENSE](./LICENSE) file for details.
+
+## 🆘 Support
+
+- 📝 **Issues**: [GitHub Issues](https://github.com/siarheidudko/stripe-js/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/siarheidudko/stripe-js/discussions)
+- 📧 **Email**: [siarhei@dudko.dev](mailto:siarhei@dudko.dev)
+
+## 💝 Support This Project
+
+If my Stripe JS Extension helps you build amazing applications, consider supporting its development:
+
+- ☕ **[Buy me a coffee](https://www.buymeacoffee.com/dudko.dev)**
+- 💳 **[PayPal](https://paypal.me/dudkodev)**
+- 🎯 **[Patreon](https://patreon.com/dudko_dev)**
+- 🌐 **[More options](http://dudko.dev/donate)**
+
+Your support helps maintain and improve Redux Cluster for the entire community!
+
+---
+
+**Made with ❤️ by [Siarhei Dudko](https://github.com/siarheidudko)**

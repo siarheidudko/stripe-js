@@ -154,5 +154,17 @@ export default tseslint.config(
       "valid-typeof": "error",
       "guard-for-in": "error",
     },
+  },
+  {
+    files: ["test/**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "no-empty-function": "off",
+      "no-underscore-dangle": "off",
+      "prefer-rest-params": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+    },
   }
 );

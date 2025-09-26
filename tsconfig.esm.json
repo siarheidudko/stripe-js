@@ -3,15 +3,16 @@
     "module": "es2020",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "sourceMap": true,
     "strict": true,
     "target": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": false
   },
   "compileOnSave": true,
-  "include": ["src", "test"]
+  "include": ["src"]
 }

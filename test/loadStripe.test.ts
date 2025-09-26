@@ -1,36 +1,30 @@
-"use strict";
-const { describe, it, before, after } = require("node:test");
-const assert = require("node:assert");
-const { Stripe: StripeAdmin } = require("stripe");
-const {
+import { describe, it, before, after } from "node:test";
+import assert from "node:assert";
+import { Stripe as StripeAdmin } from "stripe";
+import {
   stripeAdminSDK,
   stripeApiVersion,
   stripePublicKey,
   stripeExtensionJS,
   cleanDom,
-} = require("./utils/loader");
+} from "./utils/loader";
 
 const lib = stripeExtensionJS;
 
 describe("Checking the initializing function:", function () {
   /**
    * Stripe Client SDK (sergdudko/stripe-js)
-   *
-   * @type {stripeExtensionJS.Stripe}
    */
-  let stripeClientSDK;
+  let stripeClientSDK: any;
   /**
    * Stripe customer
-   *
-   * @type {StripeAdmin.Response<StripeAdmin.Customer>}
    */
-  let customer;
+  let customer: StripeAdmin.Response<StripeAdmin.Customer>;
   /**
    * Stripe ephemeral key
-   *
-   * @type {StripeAdmin.Response<StripeAdmin.EphemeralKey>}
    */
-  let ephemeralKey;
+  let ephemeralKey: StripeAdmin.Response<StripeAdmin.EphemeralKey>;
+
   before(async () => {
     customer = await stripeAdminSDK.customers.create({
       description: "Test customer",
@@ -43,21 +37,24 @@ describe("Checking the initializing function:", function () {
     );
     return;
   });
+
   after(async () => {
     if (customer)
-      await stripeAdminSDK.customers.del(customer.id).catch((err) => {
+      await stripeAdminSDK.customers.del(customer.id).catch((err: any) => {
         console.log(err);
       });
-    global.window.close();
+    (global as any).window.close();
     cleanDom();
     return;
   });
+
   it("Checking the type of initializing function", async function () {
     assert.equal(typeof lib.loadStripe, "function");
     return;
   });
+
   it("Checking the operation of the initializing function", async function () {
-    const stripeClientLoader = lib.loadStripe(stripePublicKey);
+    const stripeClientLoader = lib.loadStripe(stripePublicKey, undefined);
     assert.equal(stripeClientLoader instanceof Promise, true);
     stripeClientSDK = await stripeClientLoader;
     assert.equal(typeof stripeClientSDK, "object");
@@ -65,6 +62,7 @@ describe("Checking the initializing function:", function () {
     assert.equal(stripeClientSDK?._keyMode, "test");
     return;
   });
+
   it("Checking any original method (retrievePaymentIntent)", async function () {
     /**
      * I could not get the original library to work in jsdom,
@@ -75,6 +73,7 @@ describe("Checking the initializing function:", function () {
     assert.equal(typeof stripeClientSDK.retrievePaymentIntent, "function");
     return;
   });
+
   it("Checking method confirmPaymentIntentByCard", async function () {
     assert.equal(typeof stripeClientSDK.confirmPaymentIntentByCard, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
@@ -87,7 +86,7 @@ describe("Checking the initializing function:", function () {
       capture_method: "manual",
     });
     const returnUrl = "https://test.com/test?test=1";
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.confirmPaymentIntentByCard(
         paymentIntent.client_secret,
@@ -109,22 +108,23 @@ describe("Checking the initializing function:", function () {
       assert.equal(paymentIntentData.payment_method, card.id);
       assert.equal(paymentIntentData.status, "requires_capture");
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.paymentIntents
         .cancel(paymentIntent.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.customers
         .deleteSource(customer.id, card.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method confirmPaymentIntentByPaymentMethod", async function () {
     assert.equal(
       typeof stripeClientSDK.confirmPaymentIntentByPaymentMethod,
@@ -144,7 +144,7 @@ describe("Checking the initializing function:", function () {
       capture_method: "manual",
     });
     const returnUrl = "https://test.com/test?test=1";
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.confirmPaymentIntentByPaymentMethod(
         paymentIntent.client_secret,
@@ -166,25 +166,27 @@ describe("Checking the initializing function:", function () {
       assert.equal(paymentIntentData.payment_method, paymentMethod.id);
       assert.equal(paymentIntentData.status, "requires_capture");
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.paymentIntents
         .cancel(paymentIntent.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method addSourceToCustomer", async function () {
     assert.equal(typeof stripeClientSDK.addSourceToCustomer, "function");
-    let e, cardId;
+    let e: Error | undefined;
+    let cardId: string | undefined;
     try {
       const card = await stripeClientSDK.addSourceToCustomer(
         "tok_visa",
@@ -200,24 +202,25 @@ describe("Checking the initializing function:", function () {
       assert.equal(sourceData.id, card.id);
       assert.equal(sourceData.customer, customer.id);
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       if (typeof cardId === "string")
         await stripeAdminSDK.customers
           .deleteSource(customer.id, cardId)
-          .catch((err) => {
+          .catch((err: any) => {
             console.log(err);
           });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method deleteSourceFromCustomer", async function () {
     assert.equal(typeof stripeClientSDK.deleteSourceFromCustomer, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.deleteSourceFromCustomer(
         card.id,
@@ -231,18 +234,18 @@ describe("Checking the initializing function:", function () {
             "The source for this customer has not been removed."
           );
         })
-        .catch((err) => {
+        .catch((err: any) => {
           assert.equal(err instanceof Error, true);
           assert.equal(err.type, "StripeInvalidRequestError");
           assert.equal(err.code, "resource_missing");
         });
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       if (e) {
         await stripeAdminSDK.customers
           .deleteSource(customer.id, card.id)
-          .catch((err) => {
+          .catch((err: any) => {
             console.log(err);
           });
         throw e;
@@ -250,6 +253,7 @@ describe("Checking the initializing function:", function () {
     }
     return;
   });
+
   it("Checking method getAllCards", async function () {
     assert.equal(typeof stripeClientSDK.getAllCards, "function");
     const card1 = await stripeAdminSDK.customers.createSource(customer.id, {
@@ -261,7 +265,7 @@ describe("Checking the initializing function:", function () {
     const card3 = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
-    let e;
+    let e: Error | undefined;
     try {
       const cards = await stripeClientSDK.getAllCards(
         customer.id,
@@ -272,32 +276,33 @@ describe("Checking the initializing function:", function () {
       assert.equal(Array.isArray(cards.data), true);
       assert.equal(cards.data.length, 3);
       cards.data
-        .map((c) => c.id)
-        .forEach((e) => {
+        .map((c: any) => c.id)
+        .forEach((e: string) => {
           assert.equal([card1.id, card2.id, card3.id].includes(e), true);
         });
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.customers
         .deleteSource(customer.id, card1.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.customers
         .deleteSource(customer.id, card2.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.customers
         .deleteSource(customer.id, card3.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method getCustomer", async function () {
     assert.equal(typeof stripeClientSDK.getCustomer, "function");
     const loadedCustomer = await stripeClientSDK.getCustomer(
@@ -309,12 +314,13 @@ describe("Checking the initializing function:", function () {
     assert.equal(loadedCustomer.description, customer.description);
     return;
   });
+
   it("Checking method setDefaultCard", async function () {
     assert.equal(typeof stripeClientSDK.setDefaultCard, "function");
     const card = await stripeAdminSDK.customers.createSource(customer.id, {
       source: "tok_visa",
     });
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.setDefaultCard(
         card.id,
@@ -325,24 +331,25 @@ describe("Checking the initializing function:", function () {
       assert.equal(typeof customerData, "object");
       assert.equal(customerData.default_source, card.id);
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.customers
         .deleteSource(customer.id, card.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method addPaymentMethodToCustomer", async function () {
     assert.equal(typeof stripeClientSDK.addPaymentMethodToCustomer, "function");
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
       type: "card",
       card: { token: "tok_visa" },
     });
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.addPaymentMethodToCustomer(
         paymentMethod.id,
@@ -357,21 +364,24 @@ describe("Checking the initializing function:", function () {
       assert.equal(Array.isArray(customerPaymentMethods.data), true);
       assert.equal(customerPaymentMethods.data.length, 1);
       assert.equal(
-        customerPaymentMethods.data.map((c) => c.id).includes(paymentMethod.id),
+        customerPaymentMethods.data
+          .map((c: any) => c.id)
+          .includes(paymentMethod.id),
         true
       );
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method deletePaymentMethodFromCustomer", async function () {
     assert.equal(
       typeof stripeClientSDK.deletePaymentMethodFromCustomer,
@@ -384,7 +394,7 @@ describe("Checking the initializing function:", function () {
     await stripeAdminSDK.paymentMethods.attach(paymentMethod.id, {
       customer: customer.id,
     });
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.deletePaymentMethodFromCustomer(
         paymentMethod.id,
@@ -398,12 +408,12 @@ describe("Checking the initializing function:", function () {
       assert.equal(Array.isArray(customerPaymentMethods.data), true);
       assert.equal(customerPaymentMethods.data.length, 0);
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       if (e) {
         await stripeAdminSDK.paymentMethods
           .detach(paymentMethod.id)
-          .catch((err) => {
+          .catch((err: any) => {
             console.log(err);
           });
         throw e;
@@ -411,6 +421,7 @@ describe("Checking the initializing function:", function () {
     }
     return;
   });
+
   it("Checking method getAllPaymentMethods", async function () {
     assert.equal(typeof stripeClientSDK.getAllPaymentMethods, "function");
     const paymentMethod1 = await stripeAdminSDK.paymentMethods.create({
@@ -434,7 +445,7 @@ describe("Checking the initializing function:", function () {
     await stripeAdminSDK.paymentMethods.attach(paymentMethod3.id, {
       customer: customer.id,
     });
-    let e;
+    let e: Error | undefined;
     try {
       const paymentMethods = await stripeClientSDK.getAllPaymentMethods(
         customer.id,
@@ -445,8 +456,8 @@ describe("Checking the initializing function:", function () {
       assert.equal(Array.isArray(paymentMethods.data), true);
       assert.equal(paymentMethods.data.length, 3);
       paymentMethods.data
-        .map((c) => c.id)
-        .forEach((e) => {
+        .map((c: any) => c.id)
+        .forEach((e: string) => {
           assert.equal(
             [paymentMethod1.id, paymentMethod2.id, paymentMethod3.id].includes(
               e
@@ -455,27 +466,28 @@ describe("Checking the initializing function:", function () {
           );
         });
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod1.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod2.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod3.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;
     }
     return;
   });
+
   it("Checking method setDefaultPaymentMethod", async function () {
     assert.equal(typeof stripeClientSDK.setDefaultPaymentMethod, "function");
     const paymentMethod = await stripeAdminSDK.paymentMethods.create({
@@ -485,7 +497,7 @@ describe("Checking the initializing function:", function () {
     await stripeAdminSDK.paymentMethods.attach(paymentMethod.id, {
       customer: customer.id,
     });
-    let e;
+    let e: Error | undefined;
     try {
       await stripeClientSDK.setDefaultPaymentMethod(
         paymentMethod.id,
@@ -500,11 +512,11 @@ describe("Checking the initializing function:", function () {
         paymentMethod.id
       );
     } catch (err) {
-      e = err;
+      e = err as Error;
     } finally {
       await stripeAdminSDK.paymentMethods
         .detach(paymentMethod.id)
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       if (e) throw e;

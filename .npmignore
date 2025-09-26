@@ -4,6 +4,7 @@ docs
 node_modules
 src
 test
+dist-test
 .gitignore
 .npmignore
 tsconfig.json
