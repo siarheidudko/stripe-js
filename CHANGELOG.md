@@ -1,3 +1,8 @@
+# 2.0.4 / 2025-10-04
+
+### :tada: Enhancements
+- Updated dependencies: @eslint/js, eslint, stripe
+
 # 2.0.3 / 2025-10-02
 
 ### :tada: Enhancements
