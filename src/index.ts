@@ -2,8 +2,8 @@ import {
   loadStripe as loadStripeDefault,
   StripeConstructorOptions,
 } from "@stripe/stripe-js";
-import { StripeExtension } from "./methods/index";
-import { Stripe, StripeDefaultWithInternal } from "./types";
+import { StripeExtension } from "./methods/index.js";
+import { Stripe, StripeDefaultWithInternal } from "./types.js";
 
 /**
  * Initialize stripe
@@ -32,4 +32,4 @@ export const loadStripe = async (
 };
 
 // Re-export types for consumers
-export type { Stripe, StripeDefaultWithInternal } from "./types";
+export type { Stripe, StripeDefaultWithInternal } from "./types.js";

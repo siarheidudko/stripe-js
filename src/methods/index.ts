@@ -1,15 +1,15 @@
-import { confirmPaymentIntentByCard } from "./confirmPaymentIntentByCard";
-import { confirmPaymentIntentByPaymentMethod } from "./confirmPaymentIntentByPaymentMethod";
-import { addSourceToCustomer } from "./addSourceToCustomer";
-import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer";
-import { getAllCards } from "./getAllCards";
-import { getCustomer } from "./getCustomer";
-import { setDefaultCard } from "./setDefaultCard";
-import { getDefaultCard } from "./getDefaultCard";
-import { addPaymentMethodToCustomer } from "./addPaymentMethodToCustomer";
-import { deletePaymentMethodFromCustomer } from "./deletePaymentMethodFromCustomer";
-import { getAllPaymentMethods } from "./getAllPaymentMethods";
-import { setDefaultPaymentMethod } from "./setDefaultPaymentMethod";
+import { confirmPaymentIntentByCard } from "./confirmPaymentIntentByCard.js";
+import { confirmPaymentIntentByPaymentMethod } from "./confirmPaymentIntentByPaymentMethod.js";
+import { addSourceToCustomer } from "./addSourceToCustomer.js";
+import { deleteSourceFromCustomer } from "./deleteSourceFromCustomer.js";
+import { getAllCards } from "./getAllCards.js";
+import { getCustomer } from "./getCustomer.js";
+import { setDefaultCard } from "./setDefaultCard.js";
+import { getDefaultCard } from "./getDefaultCard.js";
+import { addPaymentMethodToCustomer } from "./addPaymentMethodToCustomer.js";
+import { deletePaymentMethodFromCustomer } from "./deletePaymentMethodFromCustomer.js";
+import { getAllPaymentMethods } from "./getAllPaymentMethods.js";
+import { setDefaultPaymentMethod } from "./setDefaultPaymentMethod.js";
 
 /**
  * additional stripe methods

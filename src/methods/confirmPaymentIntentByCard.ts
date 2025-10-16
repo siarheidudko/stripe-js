@@ -1,7 +1,7 @@
 import { PaymentIntentResult } from "@stripe/stripe-js";
-import { responseHandler } from "../utils/handlers";
-import { stripeApiUrl, stripeApiVersion } from "../utils/constants";
-import { StripeExtension } from "./index";
+import { responseHandler } from "../utils/handlers.js";
+import { stripeApiUrl, stripeApiVersion } from "../utils/constants.js";
+import { StripeExtension } from "./index.js";
 
 /**
  * Confirm payment intent by customer's card

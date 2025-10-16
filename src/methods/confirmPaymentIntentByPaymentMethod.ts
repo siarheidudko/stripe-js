@@ -1,4 +1,4 @@
-import { confirmPaymentIntentByCard } from "./confirmPaymentIntentByCard";
+import { confirmPaymentIntentByCard } from "./confirmPaymentIntentByCard.js";
 
 /**
  * Confirm payment intent by customer's payment method
