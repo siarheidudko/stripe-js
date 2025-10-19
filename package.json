@@ -1,6 +1,6 @@
 {
   "name": "@sergdudko/stripe-js",
-  "version": "2.0.11",
+  "version": "2.0.14",
   "description": "Supercharge Your Stripe Integration with Enhanced Methods for stripe-js: Take Full Control of Customer Card Management Right from Your Frontend! Elevate Your Payment Processing Capabilities with Ease and Efficiency.",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -87,10 +87,10 @@
   },
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "@types/node": "^24.7.2",
-    "eslint": "^9.37.0",
-    "jsdom": "^27.0.0",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.8.1",
+    "eslint": "^9.38.0",
+    "jsdom": "^27.0.1",
     "jsdom-global": "^3.0.2",
     "nyc": "^17.1.0",
     "prettier": "^3.6.2",
