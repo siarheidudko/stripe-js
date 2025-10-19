@@ -1,3 +1,8 @@
+# 2.0.14 / 2025-10-19
+
+### :tada: Enhancements
+- Updated dependencies: jsdom
+
 # 2.0.13 / 2025-10-18
 
 ### :tada: Enhancements
