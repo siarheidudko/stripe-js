@@ -35,3 +35,10 @@ jobs:
             npm run build
             npm test
           debug: "false"
+  deploy:
+    needs: update
+    if: needs.update.outputs.updated == 'true'
+    uses: ./.github/workflows/build-and-deploy.yml
+    with:
+      tag: ${{ needs.update.outputs.version }}
+    secrets: inherit
