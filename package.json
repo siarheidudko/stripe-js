@@ -88,7 +88,7 @@
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "@types/node": "^24.8.1",
+    "@types/node": "^24.9.1",
     "eslint": "^9.38.0",
     "jsdom": "^27.0.1",
     "jsdom-global": "^3.0.2",
@@ -97,7 +97,7 @@
     "stripe": "^19.1.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1"
+    "typescript-eslint": "^8.46.2"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.1.0"
