@@ -94,7 +94,7 @@
     "jsdom-global": "^3.0.2",
     "nyc": "^17.1.0",
     "prettier": "^3.6.2",
-    "stripe": "^19.2.1",
+    "stripe": "^19.3.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3"
