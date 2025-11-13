@@ -1,3 +1,8 @@
+# 2.0.26 / 2025-11-13
+
+### :tada: Enhancements
+- Updated dependencies: jsdom, stripe
+
 # 2.0.25 / 2025-11-12
 
 ### :tada: Enhancements
