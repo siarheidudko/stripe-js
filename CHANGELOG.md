@@ -1,3 +1,8 @@
+# 2.0.36 / 2025-12-09
+
+### :tada: Enhancements
+- Updated dependencies: @types/node, jsdom, typescript-eslint
+
 # 2.0.35 / 2025-12-04
 
 ### :tada: Enhancements
