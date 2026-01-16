@@ -1,3 +1,8 @@
+# 2.0.54 / 2026-01-16
+
+### :tada: Enhancements
+- Updated dependencies: @types/node
+
 # 2.0.53 / 2026-01-15
 
 ### :tada: Enhancements
