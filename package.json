@@ -97,9 +97,9 @@
     "stripe": "^20.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0"
+    "typescript-eslint": "^8.53.1"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^8.6.1"
+    "@stripe/stripe-js": "^8.6.3"
   }
 }
