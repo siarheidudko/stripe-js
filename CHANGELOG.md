@@ -1,3 +1,8 @@
+# 2.0.57 / 2026-01-22
+
+### :tada: Enhancements
+- Updated dependencies: @types/node, prettier
+
 # 2.0.56 / 2026-01-20
 
 ### :tada: Enhancements
