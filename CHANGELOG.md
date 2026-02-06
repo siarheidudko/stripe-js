@@ -1,3 +1,8 @@
+# 2.0.63 / 2026-02-06
+
+### :tada: Enhancements
+- Updated dependencies: @types/node, stripe
+
 # 2.0.62 / 2026-02-03
 
 ### :tada: Enhancements
