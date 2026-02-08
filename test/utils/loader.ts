@@ -85,23 +85,27 @@ const createDom = () => {
     );
   };
 };
-createDom();
-
 /**
  * Stripe public key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripePublicKey = process.env.STRIPE_TEST_PK!;
+const stripePublicKey = process.env.STRIPE_TEST_PK ?? "";
 /**
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripeSecretKey = process.env.STRIPE_TEST_SK!;
+const stripeSecretKey = process.env.STRIPE_TEST_SK ?? "";
 
 /**
  * Stripe Admin SDK (server)
  */
-const stripeAdminSDK = new stripe(stripeSecretKey, {
-  apiVersion: stripeApiVersion as any,
-});
+const stripeAdminSDK = stripeSecretKey
+  ? new stripe(stripeSecretKey, {
+      apiVersion: stripeApiVersion as any,
+    })
+  : undefined;
+
+if (stripePublicKey && stripeSecretKey) {
+  createDom();
+}
 
 export {
   stripeExtensionJS,

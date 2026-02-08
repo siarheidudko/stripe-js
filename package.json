@@ -1,6 +1,6 @@
 {
   "name": "@sergdudko/stripe-js",
-  "version": "2.0.63",
+  "version": "2.0.64",
   "description": "Supercharge Your Stripe Integration with Enhanced Methods for stripe-js: Take Full Control of Customer Card Management Right from Your Frontend! Elevate Your Payment Processing Capabilities with Ease and Efficiency.",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -33,6 +33,7 @@
     "postbuild:cjs": "echo '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
     "postbuild:esm": "echo '{\"type\":\"module\"}' > ./dist/esm/package.json",
     "build": "npm run build:cjs && npm run build:esm",
+    "pretest": "npm run build",
     "test": "./node_modules/.bin/nyc node --test --import tsx ./test/*.test.ts",
     "test:local": "./node_modules/.bin/nyc node --env-file=.env.local --test --import tsx ./test/*.test.ts",
     "update": "eval \"$(node -e 'const t = require(`./package.json`);const ignore = require(`./ignoreUpdatesModules.json`);console.log(`npm i ${(Object.keys(t.dependencies||{}).filter((e)=>ignore.base.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save&&npm i ${(Object.keys(t.devDependencies||{}).filter((e)=>ignore.dev.indexOf(e) === -1).map((e)=>(`${e}@latest`)).join(` `))} --save-dev`);')\""
@@ -88,7 +89,7 @@
   "homepage": "https://github.com/siarheidudko/stripe-js#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
-    "@types/node": "^25.2.1",
+    "@types/node": "^25.2.2",
     "eslint": "^9.39.2",
     "jsdom": "^28.0.0",
     "jsdom-global": "^3.0.2",

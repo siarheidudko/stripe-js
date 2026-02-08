@@ -10,8 +10,12 @@ import {
 } from "./utils/loader";
 
 const lib = stripeExtensionJS;
+const hasStripeCredentials = Boolean(stripeAdminSDK && stripePublicKey);
 
-describe("Checking the initializing function:", function () {
+describe(
+  "Checking the initializing function:",
+  { skip: !hasStripeCredentials },
+  function () {
   /**
    * Stripe Client SDK (sergdudko/stripe-js)
    */
@@ -523,4 +527,5 @@ describe("Checking the initializing function:", function () {
     }
     return;
   });
-});
+  }
+);
