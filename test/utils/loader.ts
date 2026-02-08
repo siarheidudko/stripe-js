@@ -1,4 +1,4 @@
-import stripe from "stripe";
+import Stripe from "stripe";
 import { EventEmitter } from "events";
 import createJSDom from "jsdom-global";
 import { readFileSync } from "fs";
@@ -99,8 +99,8 @@ const hasStripeCredentials = Boolean(stripePublicKey && stripeSecretKey);
  * Stripe Admin SDK (server)
  */
 const stripeAdminSDK = hasStripeCredentials
-  ? new stripe(stripeSecretKey, {
-      apiVersion: stripeApiVersion as any,
+  ? new Stripe(stripeSecretKey!, {
+      apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
     })
   : undefined;
 
