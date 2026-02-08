@@ -93,13 +93,17 @@ const stripePublicKey = process.env.STRIPE_TEST_PK;
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
 const stripeSecretKey = process.env.STRIPE_TEST_SK;
-const hasStripeCredentials = Boolean(stripePublicKey && stripeSecretKey);
+const hasStripeCredentials =
+  typeof stripePublicKey === "string" &&
+  stripePublicKey.length > 0 &&
+  typeof stripeSecretKey === "string" &&
+  stripeSecretKey.length > 0;
 
 /**
  * Stripe Admin SDK (server)
  */
 const stripeAdminSDK: Stripe | undefined = hasStripeCredentials
-  ? new Stripe(stripeSecretKey!, {
+  ? new Stripe(stripeSecretKey, {
       apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
     })
   : undefined;
