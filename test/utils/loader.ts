@@ -94,14 +94,11 @@ const stripePublicKey = process.env.STRIPE_TEST_PK;
  */
 const stripeSecretKey = process.env.STRIPE_TEST_SK;
 
-const isNonEmptyString = (value: unknown): value is string =>
-  typeof value === "string" && value.length > 0;
-
 // stripeAdminSDK is only available when Stripe credentials are set; check hasStripeCredentials first.
 let stripeAdminSDK: Stripe | undefined;
 let hasStripeCredentials = false;
 
-if (isNonEmptyString(stripePublicKey) && isNonEmptyString(stripeSecretKey)) {
+if (!!stripePublicKey && !!stripeSecretKey) {
   /**
    * Stripe Admin SDK (server)
    */
