@@ -93,23 +93,21 @@ const stripePublicKey = process.env.STRIPE_TEST_PK;
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
 const stripeSecretKey = process.env.STRIPE_TEST_SK;
-const hasStripeCredentials =
-  typeof stripePublicKey === "string" &&
-  stripePublicKey.length > 0 &&
-  typeof stripeSecretKey === "string" &&
-  stripeSecretKey.length > 0;
 
-/**
- * Stripe Admin SDK (server)
- */
-const stripeAdminSDK: Stripe | undefined = hasStripeCredentials
-  ? new Stripe(stripeSecretKey, {
-      apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
-    })
-  : undefined;
+const isNonEmptyString = (value: unknown): value is string =>
+  typeof value === "string" && value.length > 0;
 
-// Only initialize the DOM for tests when Stripe credentials are available.
-if (hasStripeCredentials) {
+let stripeAdminSDK: Stripe | undefined;
+let hasStripeCredentials = false;
+
+if (isNonEmptyString(stripePublicKey) && isNonEmptyString(stripeSecretKey)) {
+  /**
+   * Stripe Admin SDK (server)
+   */
+  stripeAdminSDK = new Stripe(stripeSecretKey, {
+    apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
+  });
+  hasStripeCredentials = true;
   createDom();
 }
 
