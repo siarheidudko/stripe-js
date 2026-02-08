@@ -98,12 +98,13 @@ const hasStripeCredentials = Boolean(stripePublicKey && stripeSecretKey);
 /**
  * Stripe Admin SDK (server)
  */
-const stripeAdminSDK = hasStripeCredentials
+const stripeAdminSDK: Stripe | undefined = hasStripeCredentials
   ? new Stripe(stripeSecretKey!, {
       apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
     })
   : undefined;
 
+// Only initialize the DOM for tests when Stripe credentials are available.
 if (hasStripeCredentials) {
   createDom();
 }
