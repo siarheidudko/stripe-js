@@ -1,4 +1,4 @@
-import stripe from "stripe";
+import Stripe from "stripe";
 import { EventEmitter } from "events";
 import createJSDom from "jsdom-global";
 import { readFileSync } from "fs";
@@ -85,28 +85,35 @@ const createDom = () => {
     );
   };
 };
-createDom();
-
 /**
  * Stripe public key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripePublicKey = process.env.STRIPE_TEST_PK!;
+const stripePublicKey = process.env.STRIPE_TEST_PK;
 /**
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripeSecretKey = process.env.STRIPE_TEST_SK!;
+const stripeSecretKey = process.env.STRIPE_TEST_SK;
 
-/**
- * Stripe Admin SDK (server)
- */
-const stripeAdminSDK = new stripe(stripeSecretKey, {
-  apiVersion: stripeApiVersion as any,
-});
+// stripeAdminSDK is only available when Stripe credentials are set; check hasStripeCredentials first.
+let stripeAdminSDK: Stripe | undefined;
+let hasStripeCredentials = false;
+
+if (!!stripePublicKey && !!stripeSecretKey) {
+  /**
+   * Stripe Admin SDK (server)
+   */
+  stripeAdminSDK = new Stripe(stripeSecretKey, {
+    apiVersion: stripeApiVersion as Stripe.LatestApiVersion,
+  });
+  hasStripeCredentials = true;
+  createDom();
+}
 
 export {
   stripeExtensionJS,
   stripeAdminSDK,
   stripeApiVersion,
+  hasStripeCredentials,
   stripePublicKey,
   stripeSecretKey,
   createDom,

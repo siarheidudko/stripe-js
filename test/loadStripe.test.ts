@@ -4,6 +4,7 @@ import { Stripe as StripeAdmin } from "stripe";
 import {
   stripeAdminSDK,
   stripeApiVersion,
+  hasStripeCredentials,
   stripePublicKey,
   stripeExtensionJS,
   cleanDom,
@@ -11,7 +12,10 @@ import {
 
 const lib = stripeExtensionJS;
 
-describe("Checking the initializing function:", function () {
+describe(
+  "Checking the initializing function:",
+  { skip: !hasStripeCredentials },
+  function () {
   /**
    * Stripe Client SDK (sergdudko/stripe-js)
    */
@@ -523,4 +527,5 @@ describe("Checking the initializing function:", function () {
     }
     return;
   });
-});
+  }
+);
