@@ -88,11 +88,11 @@ const createDom = () => {
 /**
  * Stripe public key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripePublicKey = process.env.STRIPE_TEST_PK ?? "";
+const stripePublicKey = process.env.STRIPE_TEST_PK;
 /**
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
-const stripeSecretKey = process.env.STRIPE_TEST_SK ?? "";
+const stripeSecretKey = process.env.STRIPE_TEST_SK;
 
 /**
  * Stripe Admin SDK (server)
