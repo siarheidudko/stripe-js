@@ -4,13 +4,13 @@ import { Stripe as StripeAdmin } from "stripe";
 import {
   stripeAdminSDK,
   stripeApiVersion,
+  hasStripeCredentials,
   stripePublicKey,
   stripeExtensionJS,
   cleanDom,
 } from "./utils/loader";
 
 const lib = stripeExtensionJS;
-const hasStripeCredentials = Boolean(stripeAdminSDK && stripePublicKey);
 
 describe(
   "Checking the initializing function:",

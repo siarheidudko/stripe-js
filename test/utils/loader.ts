@@ -93,17 +93,18 @@ const stripePublicKey = process.env.STRIPE_TEST_PK;
  * Stripe secret key (see: https://dashboard.stripe.com/test/apikeys)
  */
 const stripeSecretKey = process.env.STRIPE_TEST_SK;
+const hasStripeCredentials = Boolean(stripePublicKey && stripeSecretKey);
 
 /**
  * Stripe Admin SDK (server)
  */
-const stripeAdminSDK = stripeSecretKey
+const stripeAdminSDK = hasStripeCredentials
   ? new stripe(stripeSecretKey, {
       apiVersion: stripeApiVersion as any,
     })
   : undefined;
 
-if (stripePublicKey && stripeSecretKey) {
+if (hasStripeCredentials) {
   createDom();
 }
 
@@ -111,6 +112,7 @@ export {
   stripeExtensionJS,
   stripeAdminSDK,
   stripeApiVersion,
+  hasStripeCredentials,
   stripePublicKey,
   stripeSecretKey,
   createDom,
