@@ -91,18 +91,18 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.5.0",
-    "eslint": "^10.1.0",
-    "globals": "^17.4.0",
-    "jsdom": "^29.0.1",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
     "jsdom-global": "^3.0.2",
     "nyc": "^18.0.0",
-    "prettier": "^3.8.1",
-    "stripe": "^20.4.1",
+    "prettier": "^3.8.3",
+    "stripe": "^22.1.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.2"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^8.11.0"
+    "@stripe/stripe-js": "^9.4.0"
   }
 }
