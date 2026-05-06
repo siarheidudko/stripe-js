@@ -1,8 +1,7 @@
 name: PR checks
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
@@ -16,14 +15,10 @@ jobs:
     env:
       NODE_VERSION: 24
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Cache node modules
-        uses: actions/cache@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with: { node-version: "${{ env.NODE_VERSION }}" }
+      - uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -33,14 +28,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        run: npm ci
-      - name: Run linter
-        run: npm run lint
-      - name: Run builder
-        run: npm run build
-      - name: Archiving dist directory
-        uses: actions/upload-artifact@v4
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
         with:
           name: dist
           path: ${{ github.workspace }}/dist
@@ -55,19 +46,12 @@ jobs:
       matrix:
         node-version: [20, 22, 24]
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Unarchiving dist directory
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: ${{ github.workspace }}/dist
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Cache node modules
-        uses: actions/cache@v4
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with: { name: dist, path: "${{ github.workspace }}/dist" }
+      - uses: actions/setup-node@v6
+        with: { node-version: "${{ matrix.node-version }}" }
+      - uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
@@ -77,7 +61,5 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install dependencies
-        run: npm ci
-      - name: Run test
-        run: npm run test:only
+      - run: npm ci
+      - run: npm run test:only
