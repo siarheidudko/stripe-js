@@ -60,9 +60,7 @@ jobs:
             if any of them is red.
           - If \`npm install\` or \`npm ci\` is needed, run it first with
             \`--no-audit --no-fund\` and confirm exit 0.
-          - Limit edits to compatibility shims (types, renamed exports,
-            breaking-change adjustments, eslint-config tweaks for new rule
-            defaults). Do NOT change product logic.
+          - Limit edits to compatibility shims.
           - Do NOT bump the package version.
           - When all three are green, push and stop.
 
@@ -76,4 +74,4 @@ jobs:
           allowed_bots: "*"
           prompt: ${{ steps.prep.outputs.prompt }}
           claude_args: |
-            --allowedTools "Edit,Write,MultiEdit,Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git fetch:*),Bash(git restore:*),Bash(git checkout:*),Bash(rm:*),Bash(mkdir:*),Bash(cat:*),Bash(ls:*)"
+            --allowedTools "Edit,Write,MultiEdit,Bash(git:*),Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(rm:*),Bash(mkdir:*),Bash(cat:*),Bash(ls:*),Bash(echo:*),Bash(grep:*),Bash(find:*),Bash(sed:*),Bash(awk:*),Bash(head:*),Bash(tail:*),Bash(diff:*),Bash(mv:*),Bash(cp:*),Bash(touch:*)"
