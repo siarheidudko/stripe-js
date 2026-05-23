@@ -1,3 +1,8 @@
+# 2.0.71 / 2026-05-22
+
+### :tada: Enhancements
+- Updated dependencies: @stripe/stripe-js, tsx, typescript-eslint
+
 # 2.0.70 / 2026-05-15
 
 ### :tada: Enhancements
