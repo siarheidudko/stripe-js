@@ -1,3 +1,8 @@
+# 2.0.74 / 2026-06-12
+
+### :tada: Enhancements
+- Updated dependencies: @stripe/stripe-js, eslint, prettier, stripe, typescript-eslint
+
 # 2.0.73 / 2026-06-05
 
 ### :tada: Enhancements
