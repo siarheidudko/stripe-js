@@ -1,3 +1,8 @@
+# 2.0.75 / 2026-06-19
+
+### :tada: Enhancements
+- Updated dependencies: stripe, typescript-eslint
+
 # 2.0.74 / 2026-06-12
 
 ### :tada: Enhancements
