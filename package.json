@@ -96,13 +96,13 @@
     "jsdom": "^29.1.1",
     "jsdom-global": "^3.0.2",
     "nyc": "^18.0.0",
-    "prettier": "^3.8.5",
+    "prettier": "^3.9.4",
     "stripe": "^22.3.0",
-    "tsx": "^4.22.4",
+    "tsx": "^4.23.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.0"
+    "typescript-eslint": "^8.62.1"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^9.8.0"
+    "@stripe/stripe-js": "^9.9.0"
   }
 }
