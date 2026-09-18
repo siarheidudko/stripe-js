@@ -99,7 +99,7 @@
     "prettier": "^3.9.8",
     "stripe": "^22.6.2",
     "tsx": "^4.23.13",
-    "typescript": "^7.0.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0"
   },
   "dependencies": {
