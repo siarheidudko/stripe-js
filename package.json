@@ -92,7 +92,7 @@
     "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.1",
     "eslint": "^10.14.0",
-    "globals": "^17.13.0",
+    "globals": "^17.14.0",
     "jsdom": "^29.1.1",
     "jsdom-global": "^3.0.2",
     "nyc": "^18.0.0",
@@ -103,6 +103,6 @@
     "typescript-eslint": "^8.72.1"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^10.2.0"
+    "@stripe/stripe-js": "^10.2.1"
   }
 }
